@@ -21,8 +21,19 @@
       rerum obcaecati, laudantium quam eum aliquid voluptas rem incidunt quas aut debitis porro? Veniam, saepe.
     </h4>
     <h5>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, voluptate provident nemo ducimus excepturi eum repellat, facere ea doloribus facilis aspernatur aliquid ut magnam rerum? In tempora illo pariatur eaque.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, voluptate provident nemo ducimus excepturi eum
+      repellat, facere ea doloribus facilis aspernatur aliquid ut magnam rerum? In tempora illo pariatur eaque.
     </h5>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
+    <h6>made in mongolia</h6>
     <h6>made in mongolia</h6>
   </div>
 </template>
