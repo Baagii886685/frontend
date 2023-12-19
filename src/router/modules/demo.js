@@ -10,8 +10,8 @@ export default [
     component: () => import('@/views/AboutView.vue'),
   },
   {
-    path: '/about1',
-    name: 'about1',
-    component: () => import('@/views/AboutView.vue'),
+    path: '/admin',
+    name: 'admin',
+    component: () => import('@/views/AdminView.vue'),
   },
 ];
