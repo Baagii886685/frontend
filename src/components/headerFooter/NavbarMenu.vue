@@ -10,7 +10,9 @@
       active-text-color="#ffd04b"
       @select="handleSelect"
     >
-      <el-menu-item index="1">Нүүр</el-menu-item>
+      <el-menu-item index="/"><router-link to="/">Home</router-link></el-menu-item>
+      <!-- <el-menu-item index="/"> <router-link to="/about">Home</router-link></el-menu-item> -->
+      <el-menu-item index="/about"> <router-link to="/about">About</router-link></el-menu-item>
       <el-submenu index="2">
         <template slot="title">Бидний тухай</template>
         <el-menu-item index="2-1">Удирдлага</el-menu-item>
@@ -23,7 +25,7 @@
           <el-menu-item index="2-4-3">Мэдээ</el-menu-item>
         </el-submenu> -->
       </el-submenu>
-      <el-menu-item index="3">Боомтуудын мэдээлэл</el-menu-item>
+      <el-menu-item index="/about">Боомтуудын мэдээлэл</el-menu-item>
       <el-menu-item index="4">Холбоо барих</el-menu-item>
     </el-menu>
   </div>

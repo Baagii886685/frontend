@@ -1,5 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue';
+import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
 </script>
 
 <template>
@@ -7,11 +8,11 @@ import HelloWorld from './components/HelloWorld.vue';
     <header>
       <div>
         <HelloWorld />
-
         <nav>
           <!-- <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
           <router-link to="/about1">About1</router-link> -->
+          <NavbarMenu />
         </nav>
       </div>
     </header>

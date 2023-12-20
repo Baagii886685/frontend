@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import * as Vue2Leaflet from 'vue2-leaflet'; // VALID
 // import * as VueGoogleMaps from 'vue2-google-maps';
+import axios from 'axios';
 
 import Element from 'element-ui';
 import App from './App.vue';
@@ -9,6 +10,8 @@ import router from './router';
 import 'leaflet/dist/leaflet.css';
 import '@/style/index.less';
 import '@/assets/main.css';
+
+Vue.prototype.$axios = axios;
 
 // Vue.use(VueGoogleMaps, {
 //   load: {
