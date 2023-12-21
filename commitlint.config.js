@@ -17,8 +17,8 @@ module.exports = {
   rules: {
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [1, 'always'],
-    'subject-empty': [2, 'never'],
-    'type-empty': [2, 'never'],
+    'subject-empty': [0, 'never'],
+    'type-empty': [0, 'never'],
     'subject-case': [0, 'never'],
     'type-enum': [
       2,
