@@ -1,6 +1,9 @@
 <template>
   <main>
     <TheWelcome />
+    <div>
+      <p>asdfasdfkajsdhfl</p>
+    </div>
   </main>
 </template>
 

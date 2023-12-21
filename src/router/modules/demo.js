@@ -7,16 +7,21 @@ export default [
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/AboutView.vue'),
+    component: () => import('@/views/homePages/AboutView.vue'),
   },
   {
-    path: '/admin',
-    name: 'admin',
-    component: () => import('@/views/AdminView.vue'),
+    path: '/portabout',
+    name: 'portabout',
+    component: () => import('@/views/homePages/PortAboutView.vue'),
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/Login.vue'),
+    path: '/admin1',
+    name: 'admin1',
+    component: () => import('@/views/admin/AdminView.vue'),
+  },
+  {
+    path: '/homepage',
+    name: 'homepage',
+    component: () => import('@/views/homePages/HomePage.vue'),
   },
 ];

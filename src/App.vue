@@ -1,6 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue';
-import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
+// import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
 </script>
 
 <template>
@@ -8,11 +8,12 @@ import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
     <header>
       <div>
         <HelloWorld />
+
         <nav>
           <!-- <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
           <router-link to="/about1">About1</router-link> -->
-          <NavbarMenu />
+          <!-- <NavbarMenu /> -->
         </nav>
       </div>
     </header>
@@ -21,4 +22,8 @@ import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.test {
+  border: 3px solid red;
+}
+</style>
