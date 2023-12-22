@@ -15,8 +15,8 @@ export default [
     component: () => import('@/views/homePages/PortAboutView.vue'),
   },
   {
-    path: '/admin1',
-    name: 'admin1',
+    path: '/admin',
+    name: 'admin',
     component: () => import('@/views/admin/AdminView.vue'),
   },
   {
