@@ -25,7 +25,15 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await post('/login', { username: this.userName, password: this.password });
+        const response = await post('/login1', {
+          username: 'admin1',
+          firstName: 'baagii',
+          lastName: 'admin',
+          birthday: '1900-08-16',
+          phoneNumber: 88668566,
+          email: 'info@bpa.gov.mn',
+          password: 'admin',
+        });
         console.log('Login Response:', response);
         // Handle the response as needed
       } catch (error) {
