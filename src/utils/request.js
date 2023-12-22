@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 // 创建请求实例
+
 const instance = axios.create({
-  baseURL: 'http://localhost:8000/',
+  baseURL: 'http://localhost:8000/data',
   // 指定请求超时的毫秒数
   timeout: 1000,
   // 表示跨域请求时是否需要使用凭证
@@ -12,6 +13,7 @@ const instance = axios.create({
 // 前置拦截器（发起请求之前的拦截）
 instance.interceptors.request.use(
   (config) => {
+    console.log('Хүсэлт илгээгдлээ');
     /**
      * 在这里一般会携带前台的参数发送给后台，比如下面这段代码：
      * const token = getToken()

@@ -1,7 +1,7 @@
 <template>
   <div class="headerLogo">
     <div class="logoName">
-      <img src="../../../public/Logo.png" />
+      <img src="@/public/Logo.png" />
       <p>ХИЛИЙН БООМТЫН ЗАХИРГАА</p>
     </div>
     <div>

@@ -12,6 +12,8 @@
   </main>
 </template>
 <script>
+import { post } from '@/utils/request';
+
 export default {
   components: {},
   data() {
@@ -21,8 +23,14 @@ export default {
     };
   },
   methods: {
-    login() {
-      console.log('object');
+    async login() {
+      try {
+        const response = await post('/login', { username: this.userName, password: this.password });
+        console.log('Login Response:', response);
+        // Handle the response as needed
+      } catch (error) {
+        // Handle errors
+      }
     },
   },
 };
