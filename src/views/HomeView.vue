@@ -1,12 +1,17 @@
 <template>
   <main>
-    <TheWelcome />
     <div>
-      <p>asdfasdfkajsdhfl</p>
+      <HomeView />
     </div>
   </main>
 </template>
 
-<script setup>
-import TheWelcome from '@/components/TheWelcome.vue';
+<script>
+import HomeView from '@/components/siteBody/GoogleMaps.vue';
+
+export default {
+  components: {
+    HomeView,
+  },
+};
 </script>

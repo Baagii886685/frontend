@@ -25,19 +25,28 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await post('/login1', {
-          username: 'admin1',
-          firstName: 'baagii',
-          lastName: 'admin',
-          birthday: '1900-08-16',
-          phoneNumber: 88668566,
-          email: 'info@bpa.gov.mn',
-          password: 'admin',
+        const res = await post('/login', {
+          username: this.userName,
+          password: this.password,
+          // username: "admin1",
+          // firstName: "users",
+          // lastName:"user",
+          // birthday: "2000-09-16",
+          // phoneNumber: 88998899,
+          // email: "test11@gmail.com",
+          // password: "user",
         });
-        console.log('Login Response:', response);
-        // Handle the response as needed
+        // console.log('res.data.name:', res.data.name);
+        // console.log('res.data.lastname:', res.data.userName);
+        localStorage.setItem('firstname', res.data.name);
+        localStorage.setItem('lastname', res.data.userName);
+        if (res.data.userType === 'admin') {
+          this.$router.push({ path: '/AdminHomePage' });
+        } else {
+          this.$router.push({ path: '/OperatorHomePage' });
+        }
       } catch (error) {
-        // Handle errors
+        alert('Алдаа гарлаа');
       }
     },
   },

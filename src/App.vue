@@ -1,6 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue';
 // import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
+import FooterView from './views/footer/FooterView.vue';
 </script>
 
 <template>
@@ -19,6 +20,9 @@ import HelloWorld from './components/HelloWorld.vue';
     </header>
 
     <router-view />
+    <div>
+      <FooterView />
+    </div>
   </div>
 </template>
 
