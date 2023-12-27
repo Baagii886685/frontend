@@ -20,7 +20,9 @@ export default {
 </script>
 <style scoped>
 .footer {
-  /* border: 2px solid green; */
+  font-size: 1.2rem;
+  text-align-last: center;
   background-color: #fff;
+  border: 1px solid green;
 }
 </style>

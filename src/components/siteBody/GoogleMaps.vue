@@ -8,8 +8,7 @@
         </l-map>
       </div>
       <div class="myName">
-        <p>Mongolia</p>
-        <p>Mongolia</p>
+        <p>Нүүр хэсэгт байх мэдээлэл энд харуулна</p>
       </div>
     </div>
     <div>

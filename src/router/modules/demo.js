@@ -34,4 +34,9 @@ export default [
     name: 'OperatorHomePage',
     component: () => import('@/views/operator/OperatorHomePage.vue'),
   },
+  {
+    path: '/InformationAddView',
+    name: 'InformationAddView',
+    component: () => import('@/views/InformationAdd/InformationAddView.vue'),
+  },
 ];

@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <p>about page</p>
+      <p>Бидний тухай цэсэнд байх мэдээллийг энд харуулна</p>
     </div>
   </main>
 </template>

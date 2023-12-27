@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div>port about page</div>
+    <div>Боомтуудын мэдээллийг энд харуулна</div>
   </main>
 </template>
 <script></script>

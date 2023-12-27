@@ -18,6 +18,7 @@
           <el-menu-item index="2-2"><router-link to="/">Байгууллагын бүтэц</router-link></el-menu-item>
         </el-submenu>
         <el-menu-item index="9"><router-link to="/portabout">Боомтын тухай</router-link></el-menu-item>
+        <!-- <el-menu-item index="9"><router-link to="/portabout">Боомтын тухай</router-link></el-menu-item> -->
       </el-menu>
     </div>
   </main>
