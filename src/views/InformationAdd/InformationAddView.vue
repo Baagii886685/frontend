@@ -61,6 +61,8 @@ export default {
 <style scoped>
 .newsInput {
   width: 70%;
+
+  /* height: 40rem; */
   padding: 1%;
   margin: 1.5%;
   border: 2px solid blue;

@@ -8,11 +8,11 @@
         <el-radio-button label="left">Баруун</el-radio-button>
       </el-radio-group>
 
-      <el-tabs :tab-position="tabPosition" style="height: 200px">
+      <el-tabs :tab-position="tabPosition">
         <el-tab-pane label="Мэдээ оруулах"><InformationAddView /></el-tab-pane>
-        <el-tab-pane label="Config">хоёр</el-tab-pane>
-        <el-tab-pane label="Role">гурав</el-tab-pane>
-        <el-tab-pane label="Task">Дөрөв</el-tab-pane>
+        <el-tab-pane label="Боомтын мэдээлэл оруулах">хоёр</el-tab-pane>
+        <el-tab-pane label="Боомтын цагын хуваарь оруулах">гурав</el-tab-pane>
+        <el-tab-pane label="Байгуулагын тухай мэдээлэл оруулах">Дөрөв</el-tab-pane>
       </el-tabs>
     </div>
   </main>
@@ -33,7 +33,9 @@ export default {
 </script>
 <style>
 .operatorNavbar {
-  border: 2px solid greenyellow;
+  border: 2px solid rgb(133 82 25);
+
+  /* height: 30rem; */
 
   /* width: 20%; */
 }
