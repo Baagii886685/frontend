@@ -36,8 +36,9 @@ export default {
           // email: "test11@gmail.com",
           // password: "user",
         });
-        // console.log('res.data.name:', res.data.name);
+        console.log('res.data:', res.data);
         // console.log('res.data.lastname:', res.data.userName);
+        localStorage.setItem('userId', res.data.id);
         localStorage.setItem('firstname', res.data.name);
         localStorage.setItem('lastname', res.data.userName);
         if (res.data.userType === 'admin') {

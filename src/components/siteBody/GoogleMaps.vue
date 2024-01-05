@@ -8,7 +8,7 @@
         </l-map>
       </div>
       <div class="myName">
-        <p>Нүүр хэсэгт байх мэдээлэл энд харуулна</p>
+        <info-news-view />
       </div>
     </div>
     <div>
@@ -18,12 +18,14 @@
 </template>
 <script>
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import InfoNewsView from './InfoNewsView.vue';
 
 export default {
   components: {
     LMap,
     LTileLayer,
     LMarker,
+    InfoNewsView,
   },
   data() {
     return {

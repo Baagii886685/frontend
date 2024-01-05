@@ -1,5 +1,6 @@
 import Vue from 'vue';
 
+import 'bulma/css/bulma.css';
 import moment from 'moment';
 
 import * as Vue2Leaflet from 'vue2-leaflet'; // VALID
