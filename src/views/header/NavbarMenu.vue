@@ -2,27 +2,34 @@
   <main>
     <div>
       <div class="line"></div>
-      <el-menu
-        :default-active="activeIndex2"
-        class="el-menu-demo"
-        mode="horizontal"
-        background-color="#3c5a96"
-        text-color="#fff"
-        active-text-color="#ffd200"
-        @select="handleSelect"
-      >
-        <el-menu-item index="1"><router-link to="/">Нүүр</router-link></el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">Бидний тухай</template>
-          <el-menu-item index="2-1"><router-link to="/about">Байгууллагын тухай</router-link></el-menu-item>
-          <el-menu-item index="2-2"><router-link to="/">Байгууллагын бүтэц</router-link></el-menu-item>
-        </el-submenu>
-        <el-menu-item index="9"><router-link to="/portabout">Боомтын тухай</router-link></el-menu-item>
-        <!-- <el-menu-item index="9"><router-link to="/portabout">Боомтын тухай</router-link></el-menu-item> -->
-      </el-menu>
+      <div class="big-navbar">
+        <el-menu
+          :default-active="activeIndex2"
+          class="el-menu-demo my-navbar"
+          mode="horizontal"
+          active-background-color="#ffd200"
+          active-text-color="#ffd200"
+          text-color="white"
+          @select="handleSelect"
+        >
+          <router-link to="/"><el-menu-item index="1">Нүүр</el-menu-item></router-link>
+          <el-submenu index="2">
+            <template slot="title">Бидний тухай</template>
+            <router-link to="/about"><el-menu-item index="2-1">Даргын мэндчилгээ</el-menu-item></router-link>
+            <router-link to="/about"><el-menu-item index="2-2">Байгууллагын танилцуулга</el-menu-item></router-link>
+            <router-link to="/"><el-menu-item index="2-3">Байгууллагын бүтэц</el-menu-item></router-link>
+            <router-link to="/"><el-menu-item index="2-4">Байгууллагын түүх</el-menu-item></router-link>
+
+          </el-submenu>
+          <router-link to="/portabout"><el-menu-item index="3">Боомтын тухай</el-menu-item></router-link>
+          <router-link to="/"><el-menu-item index="4">Хууль тогтоомж</el-menu-item></router-link>
+            <router-link to="/"><el-menu-item index="5">Ил тод байдал</el-menu-item></router-link>
+        </el-menu>
+      </div>
     </div>
   </main>
 </template>
+
 <script>
 export default {
   data() {
@@ -37,4 +44,28 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+
+<style scoped>
+  .my-navbar ::v-deep .el-submenu.is-opened > .el-submenu__title {
+    background-color: #3c5a96 !important;
+  }
+  .el-menu .el-menu-item,
+  .el-submenu__title {
+    background-color: rgb(60, 90, 150, 1);
+  }
+
+.big-navbar {
+  text-align: -webkit-center;
+  background-color: #3c5a96;
+}
+
+.my-navbar {
+  width: 80%;
+  display: flex;
+  background-color: #3c5a96;
+}
+
+.router-link:hover {
+  background-color: #51963c; /* Replace with your actual color */
+}
+</style>

@@ -25,9 +25,7 @@
 // import HeaderView from '@/components/headerFooter/HeaderView.vue';
 import HeaderView from '@/views/header/HeaderView.vue';
 import NavbarMenu from '@/views/header/NavbarMenu.vue';
-// import NavbarMenu from '@/components/headerFooter/NavbarMenu.vue';
-// import FooterView from '@/components/headerFooter/FooterView.vue';
-// import GoogleMaps from '@/components/siteBody/GoogleMaps.vue';
+
 export default {
   components: { HeaderView, NavbarMenu },
   methods: {

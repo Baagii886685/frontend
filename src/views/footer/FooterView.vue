@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="footer">
-      <p>Хилийн боомтын захиргаа &copy; {{ formattedDate }}</p>
+      <p>ХИЛИЙН БООМТЫН ЗАХИРГАА &copy; {{ formattedDate }} БҮХ ЭРХ ХУУЛИАР ХАМГААЛАГДСАН</p>
     </div>
   </main>
 </template>
@@ -20,7 +20,7 @@ export default {
 </script>
 <style scoped>
 .footer {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align-last: center;
   background-color: #fff;
   border: 1px solid green;

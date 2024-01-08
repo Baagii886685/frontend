@@ -91,7 +91,7 @@
       >
       </el-input>
       <el-row>
-        <el-button type="primary" round>Цэвэрлэх</el-button>
+        <el-button type="primary" plain @click="open1" round>Цэвэрлэх</el-button>
         <el-button type="success" round @click="newsSave">Хадгалах</el-button>
       </el-row>
     </div>
@@ -115,6 +115,13 @@ export default {
     };
   },
   methods: {
+    open1(){
+      this.$notify({
+        title: 'Мэдэгдэл',
+        message: 'Амжилттай хадгаллаа',
+        type: 'success'
+      });
+    },
     selectFileOne($event) {
       this.fileOne = $event.target.files[0];
       this.error = false;
@@ -137,12 +144,17 @@ export default {
         formData.append('fileTwo', this.fileTwo);
         const res = await post('/medeeHadgalah', formData);
         if (res.data.success === true) {
-          this.fileOne = ' ';
-          this.fileTwo = ' ';
-          this.titleText = ' ';
-          this.textarea1 = ' ';
-          this.textarea2 = ' ';
-          this.textarea3 = ' ';
+          this.fileOne = '';
+          this.fileTwo = '';
+          this.titleText = '';
+          this.textarea1 = '';
+          this.textarea2 = '';
+          this.textarea3 = '';
+          this.$notify({
+            title: 'Мэдэгдэл',
+            message: 'Амжилттай хадгалагдлаа',
+            type: 'success'
+          });
         } else {
           alert('алдаа гарлаа');
         }

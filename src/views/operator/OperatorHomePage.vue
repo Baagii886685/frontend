@@ -3,15 +3,18 @@
     <div class="operatorNavbar">
       <el-radio-group v-model="tabPosition" style="margin-bottom: 30px">
         <el-radio-button label="top">дээд</el-radio-button>
-        <el-radio-button label="right">Зүүн</el-radio-button>
-        <el-radio-button label="bottom">доод</el-radio-button>
+        <!-- <el-radio-button label="right">Зүүн</el-radio-button>
+        <el-radio-button label="bottom">доод</el-radio-button> -->
         <el-radio-button label="left">Баруун</el-radio-button>
       </el-radio-group>
 
       <el-tabs :tab-position="tabPosition">
+        <el-tab-pane label="Нийтэлсэн мэдээ харах"><InformationView /></el-tab-pane>
         <el-tab-pane label="Мэдээ оруулах"><InformationAddView /></el-tab-pane>
-        <el-tab-pane label="Боомтын мэдээлэл оруулах">хоёр</el-tab-pane>
-        <el-tab-pane label="Боомтын цагын хуваарь оруулах">гурав</el-tab-pane>
+        <el-tab-pane label="Боомтуудынн мэдээлэл">гурав</el-tab-pane>
+        <el-tab-pane label="Боомтын мэдээлэл оруулах">Дөрөв</el-tab-pane>
+        <el-tab-pane label="Байгуулагын тухай мэдээлэл оруулах">Дөрөв</el-tab-pane>
+        <el-tab-pane label="Байгуулагын тухай мэдээлэл оруулах">Дөрөв</el-tab-pane>
         <el-tab-pane label="Байгуулагын тухай мэдээлэл оруулах">Дөрөв</el-tab-pane>
       </el-tabs>
     </div>
@@ -19,10 +22,12 @@
 </template>
 <script>
 import InformationAddView from '../InformationAdd/InformationAddView.vue';
+import InformationView from '../InformationAdd/InformationView.vue';
 
 export default {
   components: {
     InformationAddView,
+    InformationView,
   },
   data() {
     return {

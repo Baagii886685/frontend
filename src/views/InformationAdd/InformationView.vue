@@ -1,15 +1,27 @@
-<!-- eslint-disable vue/attributes-order -->
 <template>
-  <main>
-<div class="scroll-container big-medeelel">
-  <div class="content" ref="scrollContent">
-<div class="medeeMedeelel">
-  <h3>Онцлох мэдээ</h3>
-</div>
+  <div>
     <div class="demo-image">
-
-      <div class="block" v-for="value in sortedItems" :key="value._id" @click="infoClick(value._id)">
+      <div v-for="value in sortedItems" :key="value._id" class="block" @click="infoClick(value._id)">
         <div class="info">
+          <div>
+              <!-- Your Vue component content -->
+              <div class="edit-icon">
+              <el-tooltip placement="top">
+                <div slot="content">
+
+                  <p>Нийтлэл засварлах</p>
+                </div>
+                <el-button type="primary" icon="el-icon-edit" circle @click="postEdit(value._id)"></el-button>
+              </el-tooltip>
+              <el-tooltip placement="top">
+                <div slot="content">
+                  <p>Нийтлэл устгах</p>
+                </div>
+                <el-button type="danger" icon="el-icon-delete" circle @click="postDelete(value._id)"></el-button>
+       </el-tooltip>
+              </div>
+            </div>
+
           <div>
           <el-image
           class="info-image"
@@ -30,43 +42,12 @@
         </div>
       </div>
     </div>
-</div>
-<div>
-  <el-dialog
-  :title="newsInfo.infoTitle"
-    :visible.sync="centerDialogVisible"
-    width="50%"
-    center>
-    <div>
-      <span>{{ newsInfo.textOne }}</span>
-      <el-image
-      class="info-image"
-      style="width: 100%;"
-      :src="`http://localhost:8000/${newsInfo.photoOne}`"
-      :fit="fit"></el-image>
-      <span>{{ newsInfo.textTwo }}</span>
-      <el-image
-      class="info-image"
-      style="width: 100%;"
-      :src="`http://localhost:8000/${newsInfo.photoTwo}`"
-      :fit="fit"></el-image>
-      <span>{{ newsInfo.textThree }}</span>
-    </div>
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="centerDialogVisible = false">Хаах</el-button>
-      <!-- <el-button type="primary" @click="centerDialogVisible = false">Confirm</el-button> -->
-    </span>
-  </el-dialog>
-
-</div>
-</div>
-  </main>
+  </div>
 </template>
-
 <script>
 import { post } from '@/utils/request';
 
-export default {
+export default{
   data() {
     return {
       message: 'Hello, Vue!',
@@ -77,21 +58,34 @@ export default {
       newsInfo: [],
     };
   },
-  async mounted() {
-    const res = await post('/infoNews');
-    this.news = res.data.data;
-  },
-  // eslint-disable-next-line vue/order-in-components
   computed: {
     sortedItems() {
-      // Sort the items based on the 'createdAt' property
       return this.news.slice().sort((a, b) => {
-        // Assuming 'createdAt' is a string in ISO format
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
     },
   },
+  async mounted() {
+    const res = await post('/infoNews');
+    this.news = res.data.data;
+  },
   methods: {
+    async postDelete(id){
+      const res = await post('/infoDelete', {myData: id});
+      if (res.data.success === true) {
+        this.$notify({
+          title: 'Мэдэгдэл',
+          message: 'Амжилттай устаглаа',
+          type: 'success'
+        });
+      } else {
+        // eslint-disable-next-line no-alert
+        alert('алдаа гарлаа');
+      }
+    },
+    postEdit(id){
+      console.log(id ," tai medeeg zasah");
+    },
     infoClick(id){
       this.centerDialogVisible = true;
       this.news.forEach(element => {
@@ -101,23 +95,12 @@ export default {
       });
     },
   },
-};
+}
 </script>
 <style scoped>
-.big-medeelel{
-  background-color: #e9e6e6;
-  border-radius: 5px;
-  margin: 2%;
-}
-.medeeMedeelel{
-  /* border: 1px solid red; */
-  border-left: #3c5a96 5px solid;
-  border-radius: 3px;
-  text-align: left;
-  margin-left: 5%;
-}
-.medeeMedeelel > h3{
-  margin-left: 1%;
+.edit-icon{
+  border: 1px solid rgb(35, 149, 255);
+  display: flex;
 }
 .info-image{
   border-radius: 10%;
@@ -153,7 +136,7 @@ export default {
 }
 
 .block {
-  border: 1px solid yellow;
+  border: 1px solid rgb(0, 0, 0);
   background-color: #ccc;
   position: relative;
   border-radius: 5px;
@@ -166,7 +149,7 @@ export default {
   transition: transform 0.3s, opacity 0.3s;
 }
 .block:hover {
-  transform: scale(1.03);
+  transform: scale(1.01);
   opacity: 0.9;
 }
 .scroll-container {
@@ -189,3 +172,7 @@ export default {
   color: #333;
 }
 </style>
+
+
+
+

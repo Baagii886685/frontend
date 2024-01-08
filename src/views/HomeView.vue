@@ -1,17 +1,18 @@
 <template>
   <main>
     <div>
-      <HomeView />
+      <IndexView />
     </div>
+
   </main>
 </template>
 
 <script>
-import HomeView from '@/components/siteBody/GoogleMaps.vue';
+import IndexView from '@/components/siteBody/IndexView.vue';
 
 export default {
   components: {
-    HomeView,
+    IndexView,
   },
 };
 </script>

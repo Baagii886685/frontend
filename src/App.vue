@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import HelloWorld from './components/HelloWorld.vue'; 
 // import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
 import FooterView from './views/footer/FooterView.vue';
 </script>
@@ -15,6 +15,7 @@ import FooterView from './views/footer/FooterView.vue';
           <router-link to="/about">About</router-link>
           <router-link to="/about1">About1</router-link> -->
           <!-- <NavbarMenu /> -->
+
         </nav>
       </div>
     </header>
