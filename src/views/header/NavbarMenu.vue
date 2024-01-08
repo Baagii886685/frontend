@@ -49,9 +49,10 @@ export default {
   .my-navbar ::v-deep .el-submenu.is-opened > .el-submenu__title {
     background-color: #3c5a96 !important;
   }
+
   .el-menu .el-menu-item,
   .el-submenu__title {
-    background-color: rgb(60, 90, 150, 1);
+    background-color: rgb(60 90 150 / 100%);
   }
 
 .big-navbar {
@@ -60,8 +61,8 @@ export default {
 }
 
 .my-navbar {
-  width: 80%;
   display: flex;
+  width: 80%;
   background-color: #3c5a96;
 }
 

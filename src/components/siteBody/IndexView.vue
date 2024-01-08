@@ -30,12 +30,15 @@ export default{
 .Body-main{
   text-align: -webkit-center;
 }
+
 .maps{
   width: 70%;
 }
+
 .news{
   width: 50%;
 }
+
 .MapAndNews{
   /* border: 2px solid forestgreen; */
   display: flex;

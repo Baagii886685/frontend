@@ -10,6 +10,9 @@ module.exports = {
   ],
   rules: {
     // 禁止在覆盖高特异性选择器之后出现低特异性选择器
+    "declaration-property-value-no-unknown": [true, {
+      "ignoreProperties": ["text-align"]
+    }],
     'no-descending-specificity': null,
     // 禁止空源码
     'no-empty-source': null,
