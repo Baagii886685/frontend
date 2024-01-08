@@ -2,17 +2,16 @@
   <div class="headerLogo">
     <div class="logoName">
       <img src="../../../public/Logo.png" />
-      <p>ХИЛИЙН БООМТЫН ЗАХИРГАА</p>
-    </div>
-    <div>
-      <div>
-        <el-row>
-          <!-- <el-button type="primary" @click="login">Нэвтрэх</el-button> -->
-        </el-row>
+      <div class="adminstratorName">
+        <p>ХИЛИЙН БООМТЫН ЗАХИРГАА</p>
       </div>
-      <p><i class="el-icon-phone"></i>Утас: 262611</p>
-      <p><i class="el-icon-mail"></i> Info@bpa.gov.mn</p>
     </div>
+<div class="big-address-background">
+  <div class="my-address">
+        <p><i class="el-icon-phone-outline"></i> Утас: 262611</p>
+        <p><i class="el-icon-s-promotion"></i> Info@bpa.gov.mn</p>
+      </div>
+</div>
   </div>
 </template>
 
@@ -29,6 +28,16 @@ export default {
 </script>
 
 <style scoped>
+.big-address-background{
+  height: 100%;
+  place-self: center;
+}
+
+.adminstratorName{
+  font-size: 1.5rem;
+  font-weight: 10;
+  place-self: center;
+}
 .logoName {
   display: flex;
 }
@@ -46,7 +55,7 @@ export default {
 .headerLogo {
   display: flex;
   justify-content: space-evenly;
-
-  /* border: 2px solid rgb(125 125 219); */
+  padding: 0.3%;
+  border: 2px solid rgb(125 125 219);
 }
 </style>

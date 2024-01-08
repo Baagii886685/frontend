@@ -4,14 +4,14 @@
       <div class="line"></div>
       <div class="big-navbar">
         <el-menu
-          :default-active="activeIndex2"
-          class="el-menu-demo my-navbar"
-          mode="horizontal"
-          active-background-color="#ffd200"
-          active-text-color="#ffd200"
-          text-color="white"
-          @select="handleSelect"
-        >
+  :default-active="activeIndex2"
+  class="el-menu-demo my-navbar"
+  mode="horizontal"
+  active-text-color="#ffd200"
+  :active-style="{ borderBottom: '2px solid red' }"
+  text-color="white"
+  @select="handleSelect"
+>
           <router-link to="/"><el-menu-item index="1">Нүүр</el-menu-item></router-link>
           <el-submenu index="2">
             <template slot="title">Бидний тухай</template>
@@ -24,6 +24,7 @@
           <router-link to="/portabout"><el-menu-item index="3">Боомтын тухай</el-menu-item></router-link>
           <router-link to="/"><el-menu-item index="4">Хууль тогтоомж</el-menu-item></router-link>
             <router-link to="/"><el-menu-item index="5">Ил тод байдал</el-menu-item></router-link>
+            <router-link to="/"><el-menu-item index="6">Холбоо барих</el-menu-item></router-link>
         </el-menu>
       </div>
     </div>
@@ -46,6 +47,15 @@ export default {
 </script>
 
 <style scoped>
+.el-menu .active-menu-item:hover {
+  background-color: #7eb6ff;
+  border-bottom: 2px solid green;
+}
+
+ /* .el-menu .el-menu-item:hover {
+  background-color: #7eb6ff;
+  border-bottom: 2px solid green;
+} */
   .my-navbar ::v-deep .el-submenu.is-opened > .el-submenu__title {
     background-color: #3c5a96 !important;
   }

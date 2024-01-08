@@ -2,7 +2,7 @@
 <template>
   <GoogleMapLoader
     :mapConfig="mapConfig"
-    apiKey="AIzaSyAii0BtC5ZauNuUp3vhEqrVnjl3TsRkS2E"
+    apiKey="AIzaSyBiPe-vi5d22hPsqEQnZ557KysDCF1GSpE"
   >
   // insert your google maps api key to render styled map
     <template slot-scope="{ google, map }">

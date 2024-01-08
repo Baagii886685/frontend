@@ -11,7 +11,7 @@
       <el-tabs :tab-position="tabPosition">
         <el-tab-pane label="Нийтэлсэн мэдээ харах"><InformationView /></el-tab-pane>
         <el-tab-pane label="Мэдээ оруулах"><InformationAddView /></el-tab-pane>
-        <el-tab-pane label="Боомтуудынн мэдээлэл">гурав</el-tab-pane>
+        <el-tab-pane label="Даргын мэндчилгээ оруулах"><AboutView /></el-tab-pane>
         <el-tab-pane label="Боомтын мэдээлэл оруулах">Дөрөв</el-tab-pane>
         <el-tab-pane label="Байгуулагын тухай мэдээлэл оруулах">Дөрөв</el-tab-pane>
         <el-tab-pane label="Байгуулагын тухай мэдээлэл оруулах">Дөрөв</el-tab-pane>
@@ -21,13 +21,16 @@
   </main>
 </template>
 <script>
+
 import InformationAddView from '../InformationAdd/InformationAddView.vue';
 import InformationView from '../InformationAdd/InformationView.vue';
+import AboutView from "../about/AboutPortView.vue";
 
 export default {
   components: {
     InformationAddView,
     InformationView,
+    AboutView,
   },
   data() {
     return {
