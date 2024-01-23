@@ -4,27 +4,27 @@
       <div class="line"></div>
       <div class="big-navbar">
         <el-menu
-  :default-active="activeIndex2"
-  class="el-menu-demo my-navbar"
-  mode="horizontal"
-  active-text-color="#ffd200"
-  :active-style="{ borderBottom: '2px solid red' }"
-  text-color="white"
-  @select="handleSelect"
->
+          :default-active="activeIndex2"
+          class="el-menu-demo my-navbar"
+          mode="horizontal"
+          active-text-color="#ffd200"
+          :active-style="{ borderBottom: '2px solid red' }"
+          text-color="white"
+          @select="handleSelect"
+        >
           <router-link to="/"><el-menu-item index="1">Нүүр</el-menu-item></router-link>
           <el-submenu index="2">
             <template slot="title">Бидний тухай</template>
-            <router-link to="/about"><el-menu-item index="2-1">Даргын мэндчилгээ</el-menu-item></router-link>
-            <router-link to="/about"><el-menu-item index="2-2">Байгууллагын танилцуулга</el-menu-item></router-link>
-            <router-link to="/"><el-menu-item index="2-3">Байгууллагын бүтэц</el-menu-item></router-link>
-            <router-link to="/"><el-menu-item index="2-4">Байгууллагын түүх</el-menu-item></router-link>
+            <router-link to="/dargaMendchilgee"><el-menu-item index="2-1">Даргын мэндчилгээ</el-menu-item></router-link>
+            <router-link to="/baiguullagiinTaniltsuulga"><el-menu-item index="2-2">Байгууллагын танилцуулга</el-menu-item></router-link>
+            <router-link to="/baiguullagiinButets"><el-menu-item index="2-3">Байгууллагын бүтэц</el-menu-item></router-link>
+            <router-link to="/baiguullagiinTuuh"><el-menu-item index="2-4">Байгууллагын түүх</el-menu-item></router-link>
 
           </el-submenu>
           <router-link to="/portabout"><el-menu-item index="3">Боомтын тухай</el-menu-item></router-link>
-          <router-link to="/"><el-menu-item index="4">Хууль тогтоомж</el-menu-item></router-link>
-            <router-link to="/"><el-menu-item index="5">Ил тод байдал</el-menu-item></router-link>
-            <router-link to="/"><el-menu-item index="6">Холбоо барих</el-menu-item></router-link>
+          <!-- <router-link to="/"><el-menu-item index="4">Хууль тогтоомж</el-menu-item></router-link> -->
+            <!-- <router-link to="/"><el-menu-item index="5">Ил тод байдал</el-menu-item></router-link> -->
+            <!-- <router-link to="/"><el-menu-item index="6">Холбоо барих</el-menu-item></router-link> -->
         </el-menu>
       </div>
     </div>

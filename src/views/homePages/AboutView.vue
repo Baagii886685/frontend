@@ -4,7 +4,7 @@
       <p>Бидний тухай цэсэнд байх мэдээллийг энд харуулна</p>
     </div>
   </main>
-</template>
+</template>   
 
 <script></script>
 <style scoped></style>

@@ -56,6 +56,6 @@ export default {
   display: flex;
   justify-content: space-evenly;
   padding: 0.3%;
-  border: 2px solid rgb(125 125 219);
+  /* border: 2px solid rgb(125 125 219); */
 }
 </style>

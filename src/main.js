@@ -16,6 +16,7 @@ import * as Vue2Leaflet from 'vue2-leaflet'; // VALID
 
 import axios from 'axios';
 import Element from 'element-ui';
+import locale from 'element-ui/lib/locale/lang/en';
 import App from './App.vue';
 import store from './store';
 import router from './router';
@@ -23,7 +24,7 @@ import 'leaflet/dist/leaflet.css';
 import '@/style/index.less';
 import '@/assets/main.css';
 import DateFormattingPlugin from './dateFormatting';
-
+// import 'https://fonts.googleapis.com/css?family=Lato:100&display=swap';
 
 
 // Vue.use(VueGoogleMaps, {
@@ -42,7 +43,7 @@ Vue.prototype.$moment = moment;
 Vue.use(Vue2Leaflet);
 
 // Vue.use(placeInputImpl);
-Vue.use(Element);
+Vue.use(Element, { locale });
 Vue.use(DateFormattingPlugin);
 // Vue.config.globalProperties.$filters = {
 //   formatDate(value) {
@@ -57,6 +58,15 @@ Vue.use(DateFormattingPlugin);
 //   },
 //   // installComponents: true
 // });
+Vue.filter('formatDate', function (value, format = 'YYYY-MM-DD HH:mm:ss') {
+  if (value) {
+    return moment(String(value)).format(format);
+  }
+  return '';
+});
+
+
+
 
 
 new Vue({

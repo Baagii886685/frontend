@@ -39,4 +39,29 @@ export default [
     name: 'InformationAddView',
     component: () => import('@/views/InformationAdd/InformationAddView.vue'),
   },
+  {
+    path: '/dargaMendchilgee',
+    name: 'dargaMendchilgee',
+    component: () => import('@/views/homePages/dargiinMendchilgee.vue'),
+  },
+  {
+    path: '/baiguullagiinButets',
+    name: 'baiguullagiinButets',
+    component: () => import('@/views/homePages/BaiguullagiinButets.vue'),
+  },
+  {
+    path: '/baiguullagiinTuuh',
+    name: 'baiguullagiinTuuh',
+    component: () => import('@/views/homePages/BaiguullagiinTuuh.vue'),
+  },
+  {
+    path: '/baiguullagiinTaniltsuulga',
+    name: 'baiguullagiinTaniltsuulga',
+    component: () => import('@/views/homePages/BaiguullagiinTaniltsuulga.vue'),
+  },
+  // {
+  //   path: '/createUser',
+  //   name: 'createUser',
+  //   component: () => import('@/views/admin/CreateUser.vue'),
+  // },
 ];

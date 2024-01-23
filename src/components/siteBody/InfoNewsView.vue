@@ -1,65 +1,62 @@
 <!-- eslint-disable vue/attributes-order -->
 <template>
   <main>
-<div class="scroll-container big-medeelel">
-  <div class="content" ref="scrollContent">
-<div class="medeeMedeelel">
-  <h3>Онцлох мэдээ</h3>
-</div>
-    <div class="demo-image">
-
-      <div class="block" v-for="value in sortedItems" :key="value._id" @click="infoClick(value._id)">
-        <div class="info">
-          <div>
-          <el-image
-          class="info-image"
-          style="width: 150px; height: 170px"
-          :src="`http://localhost:8000/${value.photoOne}`"
-          :fit="fit"></el-image>
+    <div class="scroll-container big-medeelel">
+      <div class="content" ref="scrollContent">
+        <div class="medeeMedeelel">
+          <h3>Онцлох мэдээ</h3>
         </div>
-        <div class="title-date">
-          <div class="news-title">
-              <h2>{{ value.infoTitle }}</h2>
-            </div>
-            <div >
-              <div class="news-date">
-                  <span><b>Нийтэлсэн огноо:</b> {{ $moment(value.createdAt).format('YYYY-MM-DD, HH:MM') }}</span>
+        <div class="demo-image">
+          <div class="block" v-for="value in sortedItems" :key="value._id" @click="infoClick(value._id)">
+            <div class="info">
+              <div>
+                <el-image
+                  class="info-image"
+                  style="width: 150px; height: 170px"
+                  :src="`http://localhost:8000/${value.photoOne}`"
+                  :fit="fit"
+                ></el-image>
+              </div>
+              <div class="title-date">
+                <div class="news-title">
+                  <h2>{{ value.infoTitle }}</h2>
                 </div>
+                <div>
+                  <div class="news-date">
+                    <span><b>Нийтэлсэн огноо:</b> {{ $moment(value.createdAt).format('YYYY-MM-DD, HH:MM') }}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
+      <div>
+        <el-dialog :title="newsInfo.infoTitle" :visible.sync="centerDialogVisible" width="35%" center>
+          <div class="my-news">
+            <p class="is-size-5">{{ newsInfo.textOne }}</p>
+            <el-image
+              class="info-image"
+              style="width: 100%"
+              :src="`http://localhost:8000/${newsInfo.photoOne}`"
+              :fit="fit"
+            ></el-image>
+            <p class="is-size-5">{{ newsInfo.textTwo }}</p>
+            <el-image
+              class="info-image"
+              style="width: 100%"
+              :src="`http://localhost:8000/${newsInfo.photoTwo}`"
+              :fit="fit"
+            ></el-image>
+            <p class="is-size-5">{{ newsInfo.textThree }}</p>
+          </div>
+          <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="centerDialogVisible = false">Хаах</el-button>
+            <!-- <el-button type="primary" @click="centerDialogVisible = false">Confirm</el-button> -->
+          </span>
+        </el-dialog>
+      </div>
     </div>
-</div>
-<div>
-  <el-dialog
-  :title="newsInfo.infoTitle"
-    :visible.sync="centerDialogVisible"
-    width="50%"
-    center>
-    <div>
-      <span>{{ newsInfo.textOne }}</span>
-      <el-image
-      class="info-image"
-      style="width: 100%;"
-      :src="`http://localhost:8000/${newsInfo.photoOne}`"
-      :fit="fit"></el-image>
-      <span>{{ newsInfo.textTwo }}</span>
-      <el-image
-      class="info-image"
-      style="width: 100%;"
-      :src="`http://localhost:8000/${newsInfo.photoTwo}`"
-      :fit="fit"></el-image>
-      <span>{{ newsInfo.textThree }}</span>
-    </div>
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="centerDialogVisible = false">Хаах</el-button>
-      <!-- <el-button type="primary" @click="centerDialogVisible = false">Confirm</el-button> -->
-    </span>
-  </el-dialog>
-
-</div>
-</div>
   </main>
 </template>
 
@@ -80,6 +77,7 @@ export default {
   async mounted() {
     const res = await post('/infoNews');
     this.news = res.data.data;
+    console.log('res.data.data =>', res.data.data);
   },
   // eslint-disable-next-line vue/order-in-components
   computed: {
@@ -92,10 +90,10 @@ export default {
     },
   },
   methods: {
-    infoClick(id){
+    infoClick(id) {
       this.centerDialogVisible = true;
-      this.news.forEach(element => {
-        if(element._id === id){
+      this.news.forEach((element) => {
+        if (element._id === id) {
           this.newsInfo = element;
         }
       });
@@ -104,30 +102,33 @@ export default {
 };
 </script>
 <style scoped>
-.big-medeelel{
+.big-medeelel {
   background-color: #e9e6e6;
   border-radius: 5px;
   margin: 2%;
 }
-.medeeMedeelel{
+.medeeMedeelel {
   /* border: 1px solid red; */
   border-left: #3c5a96 5px solid;
   border-radius: 3px;
   text-align: left;
   margin-left: 5%;
 }
-.medeeMedeelel > h3{
+.medeeMedeelel > h3 {
   margin-left: 1%;
 }
-.info-image{
-  border-radius: 10%;
+.info-image {
+  border-radius: 5px;
   border: 1px solid rgb(0, 0, 0);
 }
 .title-date {
   /* border: 2px solid rgb(0, 0, 0); */
   width: 100%;
 }
-
+.my-news {
+  word-break: break-word;
+  /* white-space: normal; */
+}
 .news-date {
   /* border: 2px solid green; */
   position: absolute;
@@ -170,7 +171,7 @@ export default {
   opacity: 0.9;
 }
 .scroll-container {
-  max-height: 450px;
+  max-height: 522px;
   overflow-y: auto;
   border: 1px solid #ccc;
 }

@@ -1,7 +1,7 @@
 <template>
   <main>
-    <div class="footer">
-      <p>ХИЛИЙН БООМТЫН ЗАХИРГАА &copy; {{ formattedDate }} БҮХ ЭРХ ХУУЛИАР ХАМГААЛАГДСАН</p>
+    <div class="main-footer">
+      <p>&copy; {{ formattedDate }}он БҮХ ЭРХ ХУУЛИАР ХАМГААЛАГДСАН. ХИЛИЙН БООМТЫН ЗАХИРГАА</p>
     </div>
   </main>
 </template>
@@ -14,15 +14,18 @@ export default {
   },
   mounted() {
     // Example usage of $moment
-    this.formattedDate = this.$moment().format('YYYY-MM-DD');
+    this.formattedDate = this.$moment().format('YYYY');
   },
 };
 </script>
 <style scoped>
-.footer {
-  font-size: 1rem;
-  text-align-last: center;
-  background-color: #fff;
-  border: 1px solid green;
+.main-footer {
+  font-size: 0.8rem;
+  text-align: center;
+  color: white;
+  background-color: #3c5a96;
+  height: 70px;
+  padding-top: 1%;
+  /* border: 1px solid green; */
 }
 </style>

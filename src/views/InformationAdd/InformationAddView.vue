@@ -74,7 +74,7 @@
               <input ref="file" type="file" class="file-input" @change="selectFile" />
               <span class="file-cta">
                 <span class="file-icon">
-                  <i class="fas fa-upload"> Зураг оруулна уу </i>
+                  <i class="fas fa-upload">Зураг оруулна уу </i>
                 </span>
                 <span class="file-label"> энд дар... </span>
               </span>

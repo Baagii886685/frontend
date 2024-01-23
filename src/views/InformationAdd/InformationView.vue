@@ -18,7 +18,7 @@
                   <p>Нийтлэл устгах</p>
                 </div>
                 <el-button type="danger" icon="el-icon-delete" circle @click="postDelete(value._id)"></el-button>
-       </el-tooltip>
+             </el-tooltip>
               </div>
             </div>
 
