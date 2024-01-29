@@ -2,7 +2,7 @@
   <main>
     <div class="mendchilgee-big-main">
       <div class="mendchilgee-title">
-        <p>Хилийн боомтын захиргааны даргын мэндчилгээ</p>
+        <p class="mendchilgee-darga">Хилийн боомтын захиргааны даргын мэндчилгээ</p>
       </div>
       <div v-for="value in myArray" :key="value._id" class="mendchilgee-main">
         <div class="mendchilgee">
@@ -65,6 +65,11 @@ export default{
 
 </script>
 <style scoped>
+.mendchilgee-darga{
+  color: #3c5a96;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .ner{
   text-align: center;
 }
@@ -100,7 +105,9 @@ export default{
 }
 .mendchilgee-big-main{
   text-align: -webkit-center;
+  font-family: Arial, Helvetica, sans-serif;
   /* border: 2px solid blue; */
+  color: black;
   margin: 1%;
 }
 .mendchilgee-main{

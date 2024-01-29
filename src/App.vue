@@ -1,11 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'; 
+import HelloWorld from './components/HelloWorld.vue';
 // import NavbarMenu from './components/headerFooter/NavbarMenu.vue';
 import FooterView from './views/footer/FooterView.vue';
 </script>
 
 <template>
-  <div id="app">
+  <div id="app" class="big-background">
     <header>
       <div>
         <HelloWorld />
@@ -30,5 +30,8 @@ import FooterView from './views/footer/FooterView.vue';
 <style scoped>
 .test {
   border: 3px solid red;
+}
+.big-background{
+  /* background-color: aliceblue; */
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <main>
     <div>
-      <p>Боомтын үндсэн цагын хуваарь оруулах хуудсанд тавтай морилно уу.</p>
+      <p>Боомтын нэмэлт өөрчлөлт цагын хуваарь оруулах хуудсанд тавтай морилно уу.</p>
       <p>{{ borderPortName.name }}</p>
     </div>
     <div class="borderPort" v-for="value in borderPortName" :key="value._id">
-      <el-button @click="portClick(value.name, value._id)" type="success" plain style="margin-left: 20px;">
+      <el-button @click="portClick(value.name, value._id)" type="warning" plain style="margin-left: 20px;">
         {{ value.name }}
       </el-button>
     </div>
@@ -14,7 +14,12 @@
       <el-drawer title="I am the title" :visible.sync="drawer" :width="70" :size="900" :with-header="false">
         <span class="is-size-4 garchig">{{ name }}ын цагийн хуваарь оруулах гэж байна</span>
         <div>
-          <el-checkbox v-model="portWork">Боомт ажилдаггүй бол намайг сонгоорой.</el-checkbox>
+          <el-checkbox v-model="portWork">Боомт амрах бол намайг сонгоорой.</el-checkbox>
+        </div>
+        <div>
+          <span>Тайлбар бичнэ үү</span>
+          <el-input type="textarea" :rows="2" placeholder="Please input" v-model="tsagiinHuwaariTailbar">
+          </el-input>
         </div>
         <div v-if="!portWork">
           <div>
@@ -50,7 +55,7 @@
               </el-time-select>
             </div>
             <div>
-              <p>Тайлбар оруулна уу</p>
+              <p>Тээврийн нэрийг оруулна уу</p>
             </div>
             <el-input type="textarea" :rows="2" placeholder="Тайлбар оруулна уу" v-model="portDescription">
             </el-input>
@@ -62,7 +67,8 @@
               </div>
               <div>
                 <el-checkbox-group v-model="checkboxGroup1">
-                  <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+                  <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city
+                  }}</el-checkbox-button>
                 </el-checkbox-group>
               </div>
             </div>
@@ -75,8 +81,8 @@
           </div>
           <el-row>
 
-            <el-button @click="additionalTransportation = !additionalTransportation" type="warning">Нэмэлт тээврийн цаг
-              оруулах</el-button>
+            <el-button @click="additionalTransportation = !additionalTransportation" type="warning">Нэмэлт
+              тээврийн цаг оруулах</el-button>
 
           </el-row>
           <div v-if="additionalTransportation">
@@ -119,7 +125,8 @@
                 <el-checkbox v-model="nemeltAmraltiinOdor">Амралтын өдөргүй бол намайг сонго</el-checkbox>
                 <div v-if="!nemeltAmraltiinOdor">
                   <el-checkbox-group v-model="checkboxGroup2">
-                    <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+                    <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city
+                    }}</el-checkbox-button>
                   </el-checkbox-group>
                 </div>
               </div>
@@ -131,8 +138,8 @@
           </div>
         </div>
         <el-row>
-          <el-button type="primary" plain>Цэвэрлэх</el-button>
-          <el-button type="success" @click="borderPortTimeSave" :plain="true">Хадгалах</el-button>
+          <!-- <el-button type="primary" plain>Цэвэрлэх</el-button> -->
+          <el-button type="success" @click="isBorderPortTimeSave" :plain="true">Хадгалах</el-button>
         </el-row>
 
       </el-drawer>
@@ -147,6 +154,7 @@ import { post } from '@/utils/request';
 export default {
   data() {
     return {
+      tsagiinHuwaariTailbar: null,
       portWork: false,
       checked: false,
       nemeltChecked: false,
@@ -188,10 +196,11 @@ export default {
         console.error("Error fetching border port data:", error);
       }
     },
-    async borderPortTimeSave() {
+    async isBorderPortTimeSave() {
       try {
         if (localStorage.getItem("userId") && localStorage.getItem("portId")) {
           const myData = {
+            tsagiinHuwaariTailbar: this.tsagiinHuwaariTailbar,
             additionalTransportation: this.additionalTransportation,
             portWork: this.portWork,
             checked: this.checked,
@@ -214,7 +223,7 @@ export default {
             createUserId: localStorage.getItem("userId"),
             borderPortId: localStorage.getItem("portId"),
           }
-          const res = await post('/portTimeSave', myData);
+          const res = await post('/isPortTimeSave', myData);
           // console.log("object=>", res.data.data);
           if (res.data.data.success === true) {
             this.$message({

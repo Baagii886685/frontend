@@ -3,9 +3,9 @@
     <div class="borderPort-big">
 
       <div class="borderPortAllInfo">
-        <div>
-          <div class="title">
-            <p>Монгол улсын хилийн боомтууд</p>
+        <div class="big-my-title">
+          <div class="my-title">
+            <p>Боомтын танилцуулга</p>
           </div>
           <!-- <table border="1">
             <tr>
@@ -127,7 +127,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="my-drawer">
         <el-drawer
         title="I am the title"
         :visible.sync="drawer"
@@ -287,6 +287,25 @@ export default{
 }
 </script>
 <style scoped>
+.my-drawer{
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+.big-my-title{
+  text-align: left;
+}
+.my-title{
+  /* border: 1px solid blue; */
+  text-align: left;
+  /* font-weight: 900; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: #3c5a96;
+  font-weight: 500;
+  width: 17%;
+  border-bottom: 5px solid #ffd200;
+}
 .borderPort-desc{
   /* border: 1px solid blue; */
   padding: 1% 0 1% 1%;
@@ -297,13 +316,13 @@ export default{
   }
 
   th, td {
-    border: 1px solid #cac9c9;
+    /* border: 1px solid #cac9c9; */
 
     padding: 8px;
     text-align: center;
   }
   tr:hover {
-    background-color: #dadada; /* Change the background color on hover */
+    /* background-color: #dadada;  */
     cursor: pointer;
   }
 .port-image-info{
@@ -330,7 +349,7 @@ export default{
   margin-bottom: 5%;
 }
 .image-view{
-  border: 2px solid rgb(0, 0, 0);
+  /* border: 2px solid rgb(0, 0, 0); */
   width: 40%;
   margin: 2%;
 }
@@ -363,11 +382,12 @@ export default{
 }
 .borderPort-big{
   text-align: -webkit-center;
+  color: black;
 }
 .OneBorderPort {
-  border: 1px solid rgb(66, 110, 255);
+  /* border: 1px solid rgb(66, 110, 255); */
   border-radius: 5px;
-  background-color: azure;
+  /* background-color: azure; */
   display: flex;
   text-align: left;
   margin: 1.5%;
@@ -378,17 +398,18 @@ export default{
   &:hover {
     /* background-color: rgb(216, 216, 216); */
     transform: scale(1.005);
-    border: 1px solid black;
-    background: linear-gradient(to right, rgb(117, 157, 252), rgb(179, 184, 184));
+    /* border: 1px solid black; */
+    background: linear-gradient(to right, rgb(60, 90, 150, 1), rgb(60, 90, 150, 1));
     color: aliceblue  ;
   }
 }
 
 
 .borderPortAllInfo{
-  border: 1px solid rgb(58, 58, 58);
-  background-color: rgb(237, 247, 255);
+  /* border: 1px solid rgb(58, 58, 58); */
+  /* background-color: rgb(237, 247, 255); */
   width: 80%;
   padding: 1%;
+  margin: 1% 0% 0% 10%;
 }
 </style>

@@ -42,7 +42,7 @@
     <el-carousel-item>
       <div class="item">
         <div class="is-size-4">
-          Гадаад ажиллагааны хэлтэс
+          Гадаад хамтын ажиллагааны хэлтэс
         </div>
         <div class="item__content">
           Гадаад улсын төрийн байгууллага, олон улсын байгууллагуудтай хилийн боомтын асуудлаар хамтарч ажиллах, туршлага солилцож, гадаад харилцааны шугамаар хоёр орны хэлэлцэж тохирсон санааг хөрш орнуудын хилийн боомтуудын ижил түвшний байгууллагуудтай хамтран хэрэгжүүлэх ажлыг зохион байгуулах.
@@ -93,9 +93,9 @@ export default {
   font-family: "Arial";
 }
 .big-main{
-  background-color: #d3dce6;
+  /* background-color: #d3dce6; */
   padding: 2%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-bottom: 1%;
 }
 .division{

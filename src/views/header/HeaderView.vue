@@ -8,8 +8,8 @@
     </div>
 <div class="big-address-background">
   <div class="my-address">
-        <p><i class="el-icon-phone-outline"></i> Утас: 262611</p>
-        <p><i class="el-icon-s-promotion"></i> Info@bpa.gov.mn</p>
+        <p class="holboo-barih"><i class="el-icon-phone-outline"></i> Утас: 262611</p>
+        <p class="holboo-barih"><i class="el-icon-s-promotion"></i> Info@bpa.gov.mn</p>
       </div>
 </div>
   </div>
@@ -28,6 +28,11 @@ export default {
 </script>
 
 <style scoped>
+.holboo-barih{
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 520;
+}
 .big-address-background{
   height: 100%;
   place-self: center;
@@ -35,8 +40,10 @@ export default {
 
 .adminstratorName{
   font-size: 1.5rem;
-  font-weight: 10;
+  font-weight: 500;
   place-self: center;
+  /* color: #3c5a96; */
+  color: black;
 }
 .logoName {
   display: flex;

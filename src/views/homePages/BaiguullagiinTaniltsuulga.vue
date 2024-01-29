@@ -68,9 +68,10 @@ export default{
       margin-right: 5px; /* Adjust the spacing between the bullet point and text */
     }
 .big-taniltsuulga{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   text-align: -webkit-center;
+  margin-bottom: 14rem;
 }
 .taniltsuulga-main{
   /* border: 1px solid blue; */
