@@ -130,9 +130,14 @@
                       $moment(value.value1[1]).format('YYYY-MM-DD') }}</b></p>
                   </div>
 
-                  <el-row>
-                    <el-button type="success" plain>Цагийн хуваарь дэлгэрэнгүй харах</el-button>
-                  </el-row>
+                  <div v-if="value.date">
+                    <el-row>
+                      <el-button type="success" plain>{{ value.date }} Хоногын дараа цагын хуваарь өөрчлөгдөнө</el-button>
+                    </el-row>
+                  </div>
+                  <div v-else>
+                    <span>Цагын хувиар 7 хоногт өөрчлөгдөхгүй</span>
+                  </div>
                 </div>
                 <div v-else-if="!value.portWork && value.portDescription && !value.startTime && !value.endTime">
                   <span><b>{{ value.portDescription }}</b></span>
@@ -169,7 +174,7 @@ export default {
 
       dateArray: [],
       myLocation: [],
-
+      dateToday: 0,
       myCurrentDate: new Date(),
       // markers: [L.latLng(47.412, -1.218), L.latLng(47.41322, -1.219482), L.latLng(47.414, -1.22)],
       // isHovered: false,
@@ -201,98 +206,99 @@ export default {
       // console.log("value =>", typeof this.markerLatLngs);
       const res = await post('/borderLocation');
       console.log("res.data=>", res.data);
-      res.data.data.forEach((element) => {
+
+      for (const element of res.data.data) {
         const coordinates = element.location.split(',').map((coord) => parseFloat(coord.trim()));
         // console.log("element=>", element.isValue1);
-        if (element.isValue1) {
-          console.log("байна", element.isValue1[0]);
-          console.log("element.value ehleh=>", this.$moment(element.isValue1[0]).format('YYYY-MM-DD'));
-          console.log("element.value duusah=>", this.$moment(element.isValue1[1]).format('YYYY-MM-DD'));
-          console.log("element.value today=>", this.$moment(new Date()).format('YYYY-MM-DD'));
-          console.log(
-            "1111111duusah=>",
-            this.$moment(element.isValue1[0]).diff(this.$moment("2024-02-02T16:00:00.000Z"), 'days')
-          );
-          const mydate = this.$moment(element.isValue1[0]).diff(this.$moment("2024-02-04T16:00:00.000Z"), 'days')
-          if (mydate <= 7 && mydate > 0) {
-            console.log("7 - s baga");
-          } else {
-            console.log("7-s ih");
-          }
+
+        // console.log("байна", element.isValue1[0]);
+        // console.log("element.value ehleh=>", this.$moment(element.isValue1[0]).format('YYYY-MM-DD'));
+        // console.log("element.value duusah=>", this.$moment(element.isValue1[1]).format('YYYY-MM-DD'));
+        // console.log("element.value today=>", this.$moment(new Date()).format('YYYY-MM-DD'));
+        // console.log(
+        //   "1111111duusah=>",
+        //   this.$moment(element.isValue1[0]).diff(this.$moment("2024-02-02T16:00:00.000Z"), 'days')
+        // );
+        const mydate = this.$moment(element.isValue1[0]).diff(this.$moment(new Date()), 'days')
+        if (mydate <= 7 && mydate > 0) {
+          console.log("7 - s baga", mydate);
+          this.dateToday = mydate;
         } else {
-          this.myLocation.push({
-            id: element._id,
-            // Боомт цайны цагтай эсэх
-            checked: element.checked,
-            name: element.name,
-            // Нэмэлт тээвэртэй эсэх
-            additionalTransportation: element.additionalTransportation,
-            portWork: element.portWork,
-            // Боомтын эхлэх цаг
-            startTime: element.startTime,
-            // Боомтын хаах цаг
-            endTime: element.endTime,
-            // Нэмэлт тээврийн нэр нүүрс гэх мэт
-            additionName: element.additionName,
-            // нэмэлт тээврийн эхлэх цаг
-            additionStartTime: element.additionStartTime,
-            // Боомтын нэмэлт тээврийн хаах цаг
-            additionEndTime: element.additionEndTime,
-            // нэмэлт тээврийн цайны цаг эхлэх
-            additionTsaiStartTime: element.additionTsaiStartTime,
-            // боомтын амралтын өдөртэй эсэх утга true, false
-            amraltiinOdor: element.amraltiinOdor,
-            // Боомтын амралтын өдөр
-            checkboxGroup1: element.checkboxGroup1,
-            // Боомтын нэмэлт тээврийн амралтын өдөр
-            checkboxGroup2: element.checkboxGroup2,
-            // Нэмэлт тээвэр амралтын өдөргүй бол утга true, false
-            nemeltAmraltiinOdor: element.nemeltAmraltiinOdor,
-            // Нэмэлт тээвэр цайны цагтай эсэх утга true, false
-            nemeltChecked: element.nemeltChecked,
-            // Боомтын тайлбар оруулдаг цагын хувиарын талаар
-            portDescription: element.portDescription,
-            // Боомтын цайны эхлэх цаг
-            tsaiStartTime: element.tsaiStartTime,
-            // Боомтын цайны дуусах цаг
-            tsaiEndTime: element.tsaiEndTime,
-            // Боомтын цагын хувиар хүчинтэй хугацаа
-            value1: element.value1,
-            // Боомтын байршил
-            location: coordinates,
-            // Боомтын хилээс зай км
-            borderKm: element.borderKm,
-            // нэмэл тээврийн цагын хуваарь
-            additionTsaiEndTime: element.additionTsaiEndTime,
-            desc1: element.desc1,
-            desc2: element.desc2,
-
-            // цагын хуваарь өөрчлөлийн шалтгаан
-            tsagiinHuwaariTailbar: element.tsagiinHuwaariTailbar,
-
-            isAdditionalTransportation: element.isAdditionalTransportation,
-            isPortWork: element.isPortWork,
-            isChecked: element.isChecked,
-            isNemeltChecked: element.isNemeltChecked,
-            isNemeltAmraltiinOdor: element.isNemeltAmraltiinOdor,
-            isAdditionTsaiEndTime: element.isAdditionTsaiEndTime,
-            isStartTime: element.isStartTime,
-            isEndTime: element.isEndTime,
-            isTsaiStartTime: element.isTsaiStartTime,
-            isTsaiEndTime: element.isTsaiEndTime,
-            isPortDescription: element.isPortDescription,
-            isValue1: element.isValue1,
-            isAdditionName: element.isAdditionName,
-            isAdditionStartTime: element.isAdditionStartTime,
-            isAdditionEndTime: element.isAdditionEndTime,
-            isAdditionTsaiStartTime: element.isAdditionTsaiStartTime,
-            isCheckboxGroup1: element.isCheckboxGroup1,
-            isCheckboxGroup2: element.isCheckboxGroup2,
-
-          });
+          console.log("7-s ih");
         }
+        this.myLocation.push({
+          // date: this.dateToday,
+          id: element._id,
+          // Боомт цайны цагтай эсэх
+          checked: element.checked,
+          name: element.name,
+          // Нэмэлт тээвэртэй эсэх
+          additionalTransportation: element.additionalTransportation,
+          portWork: element.portWork,
+          // Боомтын эхлэх цаг
+          startTime: element.startTime,
+          // Боомтын хаах цаг
+          endTime: element.endTime,
+          // Нэмэлт тээврийн нэр нүүрс гэх мэт
+          additionName: element.additionName,
+          // нэмэлт тээврийн эхлэх цаг
+          additionStartTime: element.additionStartTime,
+          // Боомтын нэмэлт тээврийн хаах цаг
+          additionEndTime: element.additionEndTime,
+          // нэмэлт тээврийн цайны цаг эхлэх
+          additionTsaiStartTime: element.additionTsaiStartTime,
+          // боомтын амралтын өдөртэй эсэх утга true, false
+          amraltiinOdor: element.amraltiinOdor,
+          // Боомтын амралтын өдөр
+          checkboxGroup1: element.checkboxGroup1,
+          // Боомтын нэмэлт тээврийн амралтын өдөр
+          checkboxGroup2: element.checkboxGroup2,
+          // Нэмэлт тээвэр амралтын өдөргүй бол утга true, false
+          nemeltAmraltiinOdor: element.nemeltAmraltiinOdor,
+          // Нэмэлт тээвэр цайны цагтай эсэх утга true, false
+          nemeltChecked: element.nemeltChecked,
+          // Боомтын тайлбар оруулдаг цагын хувиарын талаар
+          portDescription: element.portDescription,
+          // Боомтын цайны эхлэх цаг
+          tsaiStartTime: element.tsaiStartTime,
+          // Боомтын цайны дуусах цаг
+          tsaiEndTime: element.tsaiEndTime,
+          // Боомтын цагын хувиар хүчинтэй хугацаа
+          value1: element.value1,
+          // Боомтын байршил
+          location: coordinates,
+          // Боомтын хилээс зай км
+          borderKm: element.borderKm,
+          // нэмэл тээврийн цагын хуваарь
+          additionTsaiEndTime: element.additionTsaiEndTime,
+          desc1: element.desc1,
+          desc2: element.desc2,
 
-      });
+          // цагын хуваарь өөрчлөлийн шалтгаан
+          tsagiinHuwaariTailbar: element.tsagiinHuwaariTailbar,
+
+          isAdditionalTransportation: element.isAdditionalTransportation,
+          isPortWork: element.isPortWork,
+          isChecked: element.isChecked,
+          isNemeltChecked: element.isNemeltChecked,
+          isNemeltAmraltiinOdor: element.isNemeltAmraltiinOdor,
+          isAdditionTsaiEndTime: element.isAdditionTsaiEndTime,
+          isStartTime: element.isStartTime,
+          isEndTime: element.isEndTime,
+          isTsaiStartTime: element.isTsaiStartTime,
+          isTsaiEndTime: element.isTsaiEndTime,
+          isPortDescription: element.isPortDescription,
+          isValue1: element.isValue1,
+          isAdditionName: element.isAdditionName,
+          isAdditionStartTime: element.isAdditionStartTime,
+          isAdditionEndTime: element.isAdditionEndTime,
+          isAdditionTsaiStartTime: element.isAdditionTsaiStartTime,
+          isCheckboxGroup1: element.isCheckboxGroup1,
+          isCheckboxGroup2: element.isCheckboxGroup2,
+        });
+
+
+      };
       // this.myLocation = myObj;
       // console.log('myObj =>', this.myLocation);
     } catch (error) {
