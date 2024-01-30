@@ -24,7 +24,7 @@
         <el-tab-pane label="Боомтын мэдээлэл оруулах">
           <BorderPortInfoAdd />
         </el-tab-pane>
-        <el-tab-pane label="Боомтын цагын хуваарь оруулах">
+        <el-tab-pane label="Боомтын цагийн хуваарь оруулах">
           <PortTimeTable />
         </el-tab-pane>
         <el-tab-pane label="Байгууллагын бүтэц оруулах">
@@ -36,7 +36,7 @@
         <el-tab-pane label="Байгуулагын Танилцуулга оруулах">
           <BaiguullagiinTaniltsuulgaAdd />
         </el-tab-pane>
-        <el-tab-pane label="Боомтын цагын хуваарь өөрчлөх">
+        <el-tab-pane label="Боомтын цагийн хуваарь өөрчлөх">
           <BoomtNemeltTsagOruulah />
         </el-tab-pane>
 

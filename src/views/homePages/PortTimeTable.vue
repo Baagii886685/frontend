@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <p>Боомтын үндсэн цагын хуваарь оруулах хуудсанд тавтай морилно уу.</p>
+      <p>Боомтын үндсэн цагийн хуваарь оруулах хуудсанд тавтай морилно уу.</p>
       <p>{{ borderPortName.name }}</p>
     </div>
     <div class="borderPort" v-for="value in borderPortName" :key="value._id">
@@ -218,7 +218,7 @@ export default {
           // console.log("object=>", res.data.data);
           if (res.data.data.success === true) {
             this.$message({
-              message: 'Цагын хуваарь амжилттай хадгаллаа.',
+              message: 'цагийн хуваарь амжилттай хадгаллаа.',
               type: 'Амжилттай'
             });
           }
