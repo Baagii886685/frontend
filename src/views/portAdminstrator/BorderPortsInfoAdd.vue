@@ -1,6 +1,6 @@
 <template>
-<main>
-  <div>
+  <main>
+    <div>
       <h3>Боомт бүртгэх</h3>
     </div>
     <div class="BorderPortAdd">
@@ -70,7 +70,7 @@
                 </label>
               </div>
             </div>
-        </div>
+          </div>
 
           <div class="goldoo">
             <div class="file is-boxed is-primary hiddenClass">
@@ -79,7 +79,7 @@
                   <input ref="file" type="file" class="file-input" @change="selectFile" />
                   <span class="file-cta">
                     <span class="file-icon">
-                      <i class="fas fa-upload"> Зураг оруулна уу </i>
+                      <i class="fas fa-upload">Зураг оруулна уу </i>
                     </span>
                     <span class="file-label"> энд дар... </span>
                   </span>
@@ -115,7 +115,7 @@
       </el-form>
     </div>
 
-</main>
+  </main>
 </template>
 <script>
 import { post } from '@/utils/request';
@@ -194,7 +194,7 @@ export default {
     };
   },
   methods: {
-    selectFileOne($event){
+    selectFileOne($event) {
       this.ruleForm.portImage1 = $event.target.files[0];
       this.error = false;
       this.message = '';
@@ -252,22 +252,6 @@ export default {
             alert('алдаа гарлаа');
           }
           console.log('res => ', res);
-
-
-          // console.log('name:>', this.ruleForm.name);
-          // console.log('ognoo:>', this.ruleForm.ognoo);
-          // console.log('desc:>', this.ruleForm.desc);
-          // console.log('borderKm:>', this.ruleForm.borderKm);
-          // console.log('sumiinTovKm:>', this.ruleForm.sumiinTovKm);
-          // console.log('clanKm:>', this.ruleForm.clanKm);
-          // console.log('cityKm:>', this.ruleForm.cityKm);
-          // console.log('desc1:>', this.ruleForm.desc1);
-          // console.log('desc2:>', this.ruleForm.desc2);
-          // console.log('desc3:>', this.ruleForm.desc3);
-          // console.log('region:>', this.ruleForm.region);
-          // console.log('urtrag:>', this.ruleForm.urtrag);
-          // console.log('orgorog:>', this.ruleForm.orgorog);
-          // alert('submit!');
         } else {
           console.log('error submit!!');
           return false;
@@ -277,66 +261,72 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }
-    // eslint-disable-next-line indent
-    }
+  }
 }
 </script>
 
 <style scoped>
-  ::v-deep input[type="number"]::-webkit-inner-spin-button,
-  ::v-deep input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+::v-deep input[type="number"]::-webkit-inner-spin-button,
+::v-deep input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-  ::v-deep input[type="number"] {
-    -moz-appearance: textfield;
-  }
-.  .custom-input {
-    width: 50%; /* Adjust the width as needed */
-    border: 1px solid blue;
-  }
-.goldoo{
+::v-deep input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+. .custom-input {
+  width: 50%;
+  /* Adjust the width as needed */
+  border: 1px solid blue;
+}
+
+.goldoo {
   border: 1px solid blue;
   margin: 2%;
 }
-.image-upload{
+
+.image-upload {
   border: 1px solid rgb(0, 0, 0);
   display: flex;
 }
-.test{
+
+.test {
   /* border: 2px solid red; */
   width: 100%;
   text-align: left;
 
 }
-  .orgorog-input .el-form-item__content,
-  .urtrag-input .el-form-item__content {
-    border: 2px solid yellow;
-    width: 100%; /* Adjust width if needed */
-  }
 
-  .orgorog-input {
-    border: 2px solid yellow;
-    width: 50%;
-  }
+.orgorog-input .el-form-item__content,
+.urtrag-input .el-form-item__content {
+  border: 2px solid yellow;
+  width: 100%;
+  /* Adjust width if needed */
+}
 
-  .urtrag-input {
-    border: 2px solid yellow;
-    width: 50%;
-  }
+.orgorog-input {
+  border: 2px solid yellow;
+  width: 50%;
+}
 
-  .location-input {
-    border: 2px solid blue;
-    display: flex;
-  }
+.urtrag-input {
+  border: 2px solid yellow;
+  width: 50%;
+}
 
-  .location {
-    border: 2px solid rgb(0, 0, 0);
-  }
+.location-input {
+  border: 2px solid blue;
+  display: flex;
+}
 
-  .BorderPortAdd {
-    border: 1px solid rgb(89, 248, 187);
-    width: 60%;
-  }
+.location {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.BorderPortAdd {
+  border: 1px solid rgb(0, 0, 0);
+  width: 60%;
+}
 </style>

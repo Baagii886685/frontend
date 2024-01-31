@@ -343,6 +343,7 @@ export default {
           // }
         }
         this.myLocation.push({
+
           date: startMyDate,
           myEndDate: endMyDate,
           id: element._id,
