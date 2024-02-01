@@ -63,7 +63,7 @@
             <l-marker :lat-lng="value.location" :icon="customIcon" @click="testing">
               <l-popup :lat-lng="markerLatLng" class="big-comment">
                 <p><b>{{ value.name }}</b></p>
-                <!-- Өөрчлөгдсөн цагийн хувиарыг харуулна -->
+                <!-- Өөрчлөгдсөн цагийн хуваарьыг харуулна -->
                 <div v-if="value.isValue1 && value.date <= 0 && value.myEndDate > 0">
                   <span>{{ value.borderKm }}</span>
                   <div v-if="!value.portWork && value.startTime">
@@ -97,7 +97,7 @@
                     <div v-if="value.isAdditionalTransportation">
                       <p><b>{{ value.isAdditionName }}</b></p>
                       <div class="comment">
-                        <span>цагийн хувиар: {{ value.isAdditionStartTime }} - {{ value.isAdditionEndTime }}</span>
+                        <span>цагийн хуваарь: {{ value.isAdditionStartTime }} - {{ value.isAdditionEndTime }}</span>
                         <div v-if="!value.isNemeltChecked">
                           <span>Цайны цаг: {{ value.isAdditionTsaiStartTime }} - {{ value.isAdditionTsaiEndTime }}</span>
                         </div>
@@ -128,10 +128,10 @@
                     <span><b>{{ value.portDescription }}</b></span>
                   </div>
                   <div v-else>
-                    <p><b>цагийн хувиар оруулаагүй байна</b></p>
+                    <p><b>цагийн хуваарь оруулаагүй байна</b></p>
                   </div>
                 </div>
-                <!-- цагийн хувиар хэвийн бөгөөд өөрчлөлтын цагийн болоогүй байгаа үед харагдана -->
+                <!-- цагийн хуваарь хэвийн бөгөөд өөрчлөлтын цагийн болоогүй байгаа үед харагдана -->
                 <div v-if="!value.date || value.date > 0">
                   <div v-if="!centerDialogVisible">
                     <span>{{ value.borderKm }}</span>
@@ -164,7 +164,7 @@
                       <div v-if="value.additionalTransportation">
                         <p><b>{{ value.additionName }}</b></p>
                         <div class="comment">
-                          <span>цагийн хувиар: {{ value.additionStartTime }} - {{ value.additionEndTime }}</span>
+                          <span>цагийн хуваарь: {{ value.additionStartTime }} - {{ value.additionEndTime }}</span>
                           <div v-if="!value.nemeltChecked">
                             <p>Цайны цаг: {{ value.additionTsaiStartTime }} - {{ value.additionTsaiEndTime }}</p>
                           </div>
@@ -191,7 +191,7 @@
                           $moment(value.value1[1]).format('YYYY-MM-DD') }}</b></p>
                       </div>
                       <div v-if="value.date > 0">
-                        <span class="oorchlogdoh-honog">{{ value.date }} Хоногын дараа цагийн хувиарт өөрчлөлт
+                        <span class="oorchlogdoh-honog">{{ value.date }} Хоногын дараа цагийн хуваарьт өөрчлөлт
                           орно.</span>
                       </div>
                     </div>
@@ -199,7 +199,7 @@
                       <span><b>{{ value.portDescription }}</b></span>
                     </div>
                     <div v-else>
-                      <p><b>цагийн хувиар оруулаагүй байна</b></p>
+                      <p><b>цагийн хуваарь оруулаагүй байна</b></p>
                     </div>
                   </div>
                   <div v-if="centerDialogVisible" :lat-lng="markerLatLng" class="big-comment">
@@ -224,7 +224,7 @@
                     <div v-if="value.isAdditionalTransportation">
                       <p><b>{{ value.isAdditionName }}</b></p>
                       <div class="comment">
-                        <span>цагийн хувиар: {{ value.isAdditionStartTime }} - {{ value.isAdditionEndTime }}</span>
+                        <span>цагийн хуваарь: {{ value.isAdditionStartTime }} - {{ value.isAdditionEndTime }}</span>
                         <div v-if="!value.isNemeltChecked">
                           <span>Цайны цаг: {{ value.isAdditionTsaiStartTime }} - {{ value.isAdditionTsaiEndTime }}</span>
                         </div>
@@ -375,13 +375,13 @@ export default {
           nemeltAmraltiinOdor: element.nemeltAmraltiinOdor,
           // Нэмэлт тээвэр цайны цагтай эсэх утга true, false
           nemeltChecked: element.nemeltChecked,
-          // Боомтын тайлбар оруулдаг цагийн хувиарын талаар
+          // Боомтын тайлбар оруулдаг цагийн хуваарьын талаар
           portDescription: element.portDescription,
           // Боомтын цайны эхлэх цаг
           tsaiStartTime: element.tsaiStartTime,
           // Боомтын цайны дуусах цаг
           tsaiEndTime: element.tsaiEndTime,
-          // Боомтын цагийн хувиар хүчинтэй хугацаа
+          // цагийнхуваарь хүчинтэй хугацаа
           value1: element.value1,
           // Боомтын байршил
           location: coordinates,

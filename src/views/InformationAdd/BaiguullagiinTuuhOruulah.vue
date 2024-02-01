@@ -1,50 +1,31 @@
 <template>
   <main>
     <div>
-      <el-input
-        type="textarea"
-        autosize
-        placeholder="Нэр оруулна уу"
-        v-model="text1">
+      <el-input type="textarea" autosize placeholder="Нэр оруулна уу" v-model="text1">
       </el-input>
-      <el-input
-        type="number"
-        autosize
-        placeholder="Тогтоолын дугаар оруулна уу"
-        v-model="togtoolDugaar">
+      <el-input type="number" autosize placeholder="Тогтоолын дугаар оруулна уу" v-model="togtoolDugaar">
       </el-input>
-      <el-input
-        type="textarea"
-        autosize
-        placeholder="Тогтоолын линк оруулна уу"
-        v-model="togtoolLink">
+      <el-input type="textarea" autosize placeholder="Тогтоолын линк оруулна уу" v-model="togtoolLink">
       </el-input>
       <div style="margin: 20px 0;"></div>
-      <el-input
-        type="textarea"
-        :autosize="{ minRows: 2, maxRows: 4}"
-        placeholder="Текст оруулна уу"
-        v-model="text2">
+      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="Текст оруулна уу" v-model="text2">
       </el-input>
       <div class="save-button">
         <el-row>
-        <el-button type="primary">Цэвэрлэх</el-button>
-        <el-button @click="tuuhHadgalah" type="success">Хадгалах</el-button>
-      </el-row>
+          <el-button type="primary">Цэвэрлэх</el-button>
+          <el-button @click="tuuhHadgalah" type="success">Хадгалах</el-button>
+        </el-row>
       </div>
       <div class="davtalt-page" v-for="item in myArray" :key="item._id">
         <div>
-                  <el-image
-                  class="info-image"
-                  style="width: 550px; height: 370px"
-                  :src="`http://localhost:8000/${item.photo}`"
-                  :fit="fit"></el-image>
-                </div>
-              <p>{{ item.text1 }}</p>
-              <p>{{ item.text2 }}</p>
-              <el-row>
-                <el-button @click="tuuhUstgah(item._id)" type="danger">Устгах</el-button>
-              </el-row>
+          <el-image class="info-image" style="width: 550px; height: 370px" :src="`http://localhost:8000/${item.photo}`"
+            :fit="fit"></el-image>
+        </div>
+        <p>{{ item.text1 }}</p>
+        <p>{{ item.text2 }}</p>
+        <el-row>
+          <el-button @click="tuuhUstgah(item._id)" type="danger">Устгах</el-button>
+        </el-row>
       </div>
     </div>
   </main>
@@ -52,10 +33,10 @@
 <script>
 import { post } from '@/utils/request';
 
-export default{
-  components:{},
-  data(){
-    return{
+export default {
+  components: {},
+  data() {
+    return {
       text1: null,
       text2: null,
       myArray: [],
@@ -63,14 +44,14 @@ export default{
       togtoolLink: null,
     }
   },
-  mounted(){
+  mounted() {
     this.haruulahMedeeDuudah();
   },
-  methods:{
-    async tuuhUstgah(value){
+  methods: {
+    async tuuhUstgah(value) {
       console.log("ustgah-value=>", value);
-      try{
-        const res = await post('/tuuhustgah', {id: value});
+      try {
+        const res = await post('/tuuhustgah', { id: value });
         if (res.data.success === true) {
           this.$notify({
             title: 'Мэдэгдэл',
@@ -80,11 +61,11 @@ export default{
         } else {
           alert('алдаа гарлаа');
         }
-      }catch(error){
+      } catch (error) {
         alert("Алдаа гарлаа");
       }
     },
-    async haruulahMedeeDuudah(){
+    async haruulahMedeeDuudah() {
       try {
         const res = await post('/tuuhHaruulah');
         if (res.data.success === true) {
@@ -102,7 +83,7 @@ export default{
       this.error = false;
       this.message = '';
     },
-    async tuuhHadgalah(){
+    async tuuhHadgalah() {
       try {
         const myData = {
           text1: this.text1,
@@ -135,10 +116,11 @@ export default{
 }
 </script>
 <style scoped>
-.davtalt-page{
+.davtalt-page {
   border: 1px solid red;
 }
-.save-button{
+
+.save-button {
   margin: 1%;
 }
 </style>

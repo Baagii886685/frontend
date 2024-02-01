@@ -21,11 +21,17 @@
         <el-tab-pane label="Даргын мэндчилгээ оруулах">
           <AboutView />
         </el-tab-pane>
-        <el-tab-pane label="Боомтын мэдээлэл оруулах">
+        <el-tab-pane label="Боомт бүртгэх">
           <BorderPortInfoAdd />
         </el-tab-pane>
-        <el-tab-pane label="Боомтын цагийн хуваарь оруулах">
+        <el-tab-pane label="Боомт устгах">
+          <BorderPortDelete />
+        </el-tab-pane>
+        <el-tab-pane label="цагийн хуваарь оруулах">
           <PortTimeTable />
+        </el-tab-pane>
+        <el-tab-pane label="үндсэн цагийн хуваарь устгах">
+          <BoomtTsagHuwUstgah />
         </el-tab-pane>
         <el-tab-pane label="Байгууллагын бүтэц оруулах">
           <BaiguullagiinButets />
@@ -36,8 +42,11 @@
         <el-tab-pane label="Байгуулагын Танилцуулга оруулах">
           <BaiguullagiinTaniltsuulgaAdd />
         </el-tab-pane>
-        <el-tab-pane label="Боомтын цагийн хуваарь өөрчлөх">
+        <el-tab-pane label="Цагийн хуваарийн өөрчлөлт оруулах">
           <BoomtNemeltTsagOruulah />
+        </el-tab-pane>
+        <el-tab-pane label="Цагийн хуваарийн өөрчлөлтийг устгах">
+          <BoomtiinTsagiinOorchloltUstgah />
         </el-tab-pane>
 
       </el-tabs>
@@ -54,6 +63,9 @@ import AboutView from "../about/AboutPortView.vue";
 import BorderPortInfoAdd from '../portAdminstrator/BorderPortsInfoAdd.vue';
 import PortTimeTable from '../homePages/PortTimeTable.vue';
 import BoomtNemeltTsagOruulah from '../InformationAdd/BoomtNemeltTsagOruulah.vue';
+import BorderPortDelete from '../portAdminstrator/BorderPortDelete.vue';
+import BoomtTsagHuwUstgah from '../InformationAdd/BoomtTsagHuwUstgah.vue';
+import BoomtiinTsagiinOorchloltUstgah from '../InformationAdd/BoomtiinTsagiinOorchloltUstgah.vue';
 // import PortInformationAdd from "../portAdminstrator/PortInformationAdd.vue";
 
 export default {
@@ -66,7 +78,10 @@ export default {
     BaiguullagiinButets,
     BaiguullagiinTuuh,
     BaiguullagiinTaniltsuulgaAdd,
-    BoomtNemeltTsagOruulah
+    BoomtNemeltTsagOruulah,
+    BorderPortDelete,
+    BoomtTsagHuwUstgah,
+    BoomtiinTsagiinOorchloltUstgah
   },
   data() {
     return {
