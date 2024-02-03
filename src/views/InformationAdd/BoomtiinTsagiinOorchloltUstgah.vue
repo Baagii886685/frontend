@@ -6,7 +6,7 @@
     </div>
     <div class="borderPort" v-for="value in borderPortName" :key="value._id">
       <el-button @click="portClick(value.name, value._id)" type="info" plain style="margin-left: 20px;">
-        {{ value.name }}ыг устгах
+        {{ value.name }}ыг харах
       </el-button>
     </div>
 

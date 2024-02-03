@@ -7,7 +7,9 @@
         </el-row>
       </div>
       <el-tabs :tab-position="tabPosition">
-        <el-tab-pane label="хэрэглэгч бүртгэх"><createUser /></el-tab-pane>
+        <el-tab-pane label="хэрэглэгч бүртгэх">
+          <createUser />
+        </el-tab-pane>
         <el-tab-pane label="aa">asdfasdf</el-tab-pane>
         <el-tab-pane label="bb">sdf</el-tab-pane>
         <el-tab-pane label="cc">asdfasdf</el-tab-pane>
@@ -28,12 +30,24 @@ export default {
       tabPosition: 'left',
     };
   },
-  methods:{
-    logout(){
+  mounted() {
+    this.myCurrent();
+  },
+  methods: {
+    logout() {
       console.log("object");
       window.localStorage.clear();
       this.$router.push({ path: "/" });
-    }
+    },
+    myCurrent() {
+      try {
+        if (!sessionStorage.getItem("token")) {
+          this.$router.push({ path: "/" });
+        }
+      } catch (error) {
+        console.log("алдаа гарлаа. ", error);
+      }
+    },
   }
 };
 </script>

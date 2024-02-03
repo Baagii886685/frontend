@@ -2,8 +2,10 @@
   <main>
     <div>
       <div class="loginInput">
-        <el-input v-model="userName" @keyup.enter.native="login" placeholder="Нэвтрэх нэр оруулна уу" clearable> </el-input>
-        <el-input v-model="password" @keyup.enter.native="login" placeholder="Нууц үг оруулна уу" show-password></el-input>
+        <el-input v-model="userName" @keyup.enter.native="login" placeholder="Нэвтрэх нэр оруулна уу" clearable>
+        </el-input>
+        <el-input v-model="password" @keyup.enter.native="login" placeholder="Нууц үг оруулна уу"
+          show-password></el-input>
         <el-row class="login-button">
           <el-button type="success" @click="login">Нэвтрэх</el-button>
         </el-row>
@@ -23,9 +25,11 @@ export default {
     };
   },
   methods: {
-    localSave(res){
+    localSave(res) {
+      sessionStorage.setItem('token', res.data.token)
+
       localStorage.setItem('userId', res.data.id);
-      localStorage.setItem('token', res.data.token);
+      // localStorage.setItem('token', res.data.token);
       localStorage.setItem('firstname', res.data.name);
       localStorage.setItem('lastname', res.data.userName);
     },
@@ -48,10 +52,10 @@ export default {
         if (res.data.userType === 'admin' && res.data.token && res.data.id) {
           this.$router.push({ path: '/AdminHomePage' });
           this.localSave(res);
-        } else if(res.data.userType === 'user') {
+        } else if (res.data.userType === 'user') {
           this.$router.push({ path: '/OperatorHomePage' });
           this.localSave(res);
-        } else{
+        } else {
           this.$message.error('Нэвтрэх нэр эсвэл нууц үг буруу байна.');
         }
       } catch (error) {
@@ -62,12 +66,13 @@ export default {
 };
 </script>
 <style scoped>
-.el-button{
+.el-button {
   width: 100%;
   margin: 2%;
 
 }
-.el-input{
+
+.el-input {
   margin: 2%;
 }
 

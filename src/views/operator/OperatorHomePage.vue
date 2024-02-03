@@ -88,10 +88,23 @@ export default {
       tabPosition: 'left',
     };
   },
+  mounted() {
+    this.myCurrent();
+  },
   methods: {
+    myCurrent() {
+      try {
+        if (!sessionStorage.getItem("token")) {
+          this.$router.push({ path: "/" });
+        }
+      } catch (error) {
+        console.log("алдаа гарлаа. ", error);
+      }
+    },
     logout() {
       console.log("object");
       window.localStorage.clear();
+      window.sessionStorage.clear();
       this.$router.push({ path: "/" });
     },
   }
