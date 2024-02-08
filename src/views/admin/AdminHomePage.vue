@@ -10,20 +10,76 @@
         <el-tab-pane label="хэрэглэгч бүртгэх">
           <createUser />
         </el-tab-pane>
-        <el-tab-pane label="aa">asdfasdf</el-tab-pane>
-        <el-tab-pane label="bb">sdf</el-tab-pane>
-        <el-tab-pane label="cc">asdfasdf</el-tab-pane>
+        <el-tab-pane label="Нийтэлсэн мэдээ харах">
+          <InformationView />
+        </el-tab-pane>
+        <el-tab-pane label="Мэдээ оруулах">
+          <InformationAddView />
+        </el-tab-pane>
+        <el-tab-pane label="Даргын мэндчилгээ оруулах">
+          <AboutView />
+        </el-tab-pane>
+        <el-tab-pane label="Боомт бүртгэх">
+          <BorderPortInfoAdd />
+        </el-tab-pane>
+        <el-tab-pane label="Боомт устгах">
+          <BorderPortDelete />
+        </el-tab-pane>
+        <el-tab-pane label="цагийн хуваарь оруулах">
+          <PortTimeTable />
+        </el-tab-pane>
+        <el-tab-pane label="үндсэн цагийн хуваарь устгах">
+          <BoomtTsagHuwUstgah />
+        </el-tab-pane>
+        <el-tab-pane label="Байгууллагын бүтэц оруулах">
+          <BaiguullagiinButets />
+        </el-tab-pane>
+        <el-tab-pane label="Байгуулагын түүх оруулах">
+          <BaiguullagiinTuuh />
+        </el-tab-pane>
+        <el-tab-pane label="Байгуулагын Танилцуулга оруулах">
+          <BaiguullagiinTaniltsuulgaAdd />
+        </el-tab-pane>
+        <el-tab-pane label="Цагийн хуваарийн өөрчлөлт оруулах">
+          <BoomtNemeltTsagOruulah />
+        </el-tab-pane>
+        <el-tab-pane label="Цагийн хуваарийн өөрчлөлтийг устгах">
+          <BoomtiinTsagiinOorchloltUstgah />
+        </el-tab-pane>
       </el-tabs>
     </div>
   </main>
 </template>
 <script>
 import createUser from './CreateUser.vue';
-// import PortInformationAdd from "../portAdminstrator/PortInformationAdd.vue";
+import BaiguullagiinTaniltsuulgaAdd from '../InformationAdd/baiguullagiinTaniltsuulgaAdd.vue';
+import BaiguullagiinTuuh from '../InformationAdd/BaiguullagiinTuuhOruulah.vue';
+import BaiguullagiinButets from '../InformationAdd/BaiguullagiinButetsOruulah.vue';
+import InformationAddView from '../InformationAdd/InformationAddView.vue';
+import InformationView from '../InformationAdd/InformationView.vue';
+import AboutView from "../about/AboutPortView.vue";
+import BorderPortInfoAdd from '../portAdminstrator/BorderPortsInfoAdd.vue';
+import PortTimeTable from '../homePages/PortTimeTable.vue';
+import BoomtNemeltTsagOruulah from '../InformationAdd/BoomtNemeltTsagOruulah.vue';
+import BorderPortDelete from '../portAdminstrator/BorderPortDelete.vue';
+import BoomtTsagHuwUstgah from '../InformationAdd/BoomtTsagHuwUstgah.vue';
+import BoomtiinTsagiinOorchloltUstgah from '../InformationAdd/BoomtiinTsagiinOorchloltUstgah.vue';
 
 export default {
   components: {
     createUser,
+    InformationAddView,
+    InformationView,
+    AboutView,
+    BorderPortInfoAdd,
+    PortTimeTable,
+    BaiguullagiinButets,
+    BaiguullagiinTuuh,
+    BaiguullagiinTaniltsuulgaAdd,
+    BoomtNemeltTsagOruulah,
+    BorderPortDelete,
+    BoomtTsagHuwUstgah,
+    BoomtiinTsagiinOorchloltUstgah
   },
   data() {
     return {
