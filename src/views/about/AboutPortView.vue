@@ -20,41 +20,41 @@
       </div>
       <div>
         <el-input
+          v-model="textarea1"
           type="textarea"
           :rows="2"
-          placeholder="Please input"
-          v-model="textarea1">
+          placeholder="Please input">
         </el-input>
         <el-input
+          v-model="textarea2"
           type="textarea"
           :rows="2"
-          placeholder="Please input"
-          v-model="textarea2">
+          placeholder="Please input">
         </el-input>
         <el-input
+          v-model="textarea3"
           type="textarea"
           :rows="2"
-          placeholder="Please input"
-          v-model="textarea3">
+          placeholder="Please input">
         </el-input>
         <el-input
+          v-model="textarea4"
           type="textarea"
           :rows="2"
-          placeholder="Please input"
-          v-model="textarea4">
+          placeholder="Please input">
         </el-input>
         <el-input
+          v-model="textarea5"
           type="textarea"
           :rows="2"
-          placeholder="Please input"
-          v-model="textarea5">
+          placeholder="Please input">
         </el-input>
-        <el-input placeholder="Please input" v-model="input1"></el-input>
-        <el-input placeholder="Please input" v-model="input2"></el-input>
+        <el-input v-model="input1" placeholder="Please input"></el-input>
+        <el-input v-model="input2" placeholder="Please input"></el-input>
       </div>
       <div>
         <el-row>
-        <el-button type="primary" plain @click="open1" round>Цэвэрлэх</el-button>
+        <el-button type="primary" plain round @click="open1">Цэвэрлэх</el-button>
         <el-button type="success" round @click="mendchilgeeHadgalah">Хадгалах</el-button>
       </el-row>
       </div>
@@ -71,7 +71,7 @@
             <el-image
             class="info-image"
             style="width: 550px; height: 370px"
-            :src="`http://localhost:8000/${value.photo}`"
+            :src="baseUrl + value.photo"
             :fit="fit"></el-image>
           </div>
           <div class="mendchilgee-text">
@@ -95,7 +95,7 @@
         </div>
         <div>
           <el-row>
-            <el-button @click="mendchilgeeUstgah(value._id)" type="danger">Устгах</el-button>
+            <el-button type="danger" @click="mendchilgeeUstgah(value._id)">Устгах</el-button>
           </el-row>
         </div>
       </div>
@@ -109,7 +109,8 @@ import { post } from '@/utils/request';
 
 export default{
   data(){
-    return{
+    return {
+      baseUrl: 'https://bpa.gov.mn/app/',
       file: null,
       textarea1:  null,
       textarea2: null,

@@ -99,13 +99,13 @@
 
           </table> -->
       </div>
-        <div class="pointer-hover" v-for="(value, index) in sortedBorderPortInfo" :key="index">
+        <div v-for="(value, index) in sortedBorderPortInfo" :key="index" class="pointer-hover">
           <div>
                 <div class="OneBorderPort" @click="portClick(value._id)">
                   <div class="image-container">
                     <el-image
                         class="info-image"
-                        :src="`http://localhost:8000/${value.portImage2}`"
+                        :src="baseUrl + value.portImage2"
                       >
                     </el-image>
                   </div>
@@ -140,13 +140,13 @@
         </div>
         <div class="image-view">
               <el-image
-                  :src="`http://localhost:8000/${portInfo.portImage1}`"
+                  :src="baseUrl + portInfo.portImage1"
                 >
               </el-image>
         </div>
         <div class="image-view">
               <el-image
-                  :src="`http://localhost:8000/${portInfo.portImage2}`"
+                  :src="baseUrl + portInfo.portImage2"
                 >
               </el-image>
           </div>
@@ -183,7 +183,8 @@ import { post } from '@/utils/request';
 export default{
 
   data(){
-    return{
+    return {
+      baseUrl: 'https://bpa.gov.mn/app/',
       borderPortInfo: [],
       drawer: false,
       portInfo: {},

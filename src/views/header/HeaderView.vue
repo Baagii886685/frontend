@@ -8,7 +8,7 @@
     </div>
 <div class="big-address-background">
   <div class="my-address">
-        <p class="holboo-barih"><i class="el-icon-phone-outline"></i> Утас: 262611</p>
+        <p class="holboo-barih"><i class="el-icon-phone-outline"></i> Утас:51 262699</p>
         <p class="holboo-barih"><i class="el-icon-s-promotion"></i> Info@bpa.gov.mn</p>
       </div>
 </div>

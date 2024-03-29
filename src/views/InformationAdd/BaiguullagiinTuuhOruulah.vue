@@ -1,30 +1,31 @@
 <template>
   <main>
     <div>
-      <el-input type="textarea" autosize placeholder="Нэр оруулна уу" v-model="text1">
+      <el-input v-model="text1" type="textarea" autosize placeholder="Нэр оруулна уу">
       </el-input>
-      <el-input type="number" autosize placeholder="Тогтоолын дугаар оруулна уу" v-model="togtoolDugaar">
+      <el-input v-model="togtoolDugaar" type="number" autosize placeholder="Тогтоолын дугаар оруулна уу">
       </el-input>
-      <el-input type="textarea" autosize placeholder="Тогтоолын линк оруулна уу" v-model="togtoolLink">
+      <el-input v-model="togtoolLink" type="textarea" autosize placeholder="Тогтоолын линк оруулна уу">
       </el-input>
       <div style="margin: 20px 0;"></div>
-      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="Текст оруулна уу" v-model="text2">
+      <el-input v-model="text2" type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="Текст оруулна уу">
       </el-input>
       <div class="save-button">
         <el-row>
           <el-button type="primary">Цэвэрлэх</el-button>
-          <el-button @click="tuuhHadgalah" type="success">Хадгалах</el-button>
+          <el-button type="success" @click="tuuhHadgalah">Хадгалах</el-button>
         </el-row>
       </div>
-      <div class="davtalt-page" v-for="item in myArray" :key="item._id">
+      <div v-for="item in myArray" :key="item._id" class="davtalt-page">
         <div>
-          <el-image class="info-image" style="width: 550px; height: 370px" :src="`http://localhost:8000/${item.photo}`"
+          <el-image
+              class="info-image" style="width: 550px; height: 370px" :src="baseUrl + item.photo"
             :fit="fit"></el-image>
         </div>
         <p>{{ item.text1 }}</p>
         <p>{{ item.text2 }}</p>
         <el-row>
-          <el-button @click="tuuhUstgah(item._id)" type="danger">Устгах</el-button>
+          <el-button type="danger" @click="tuuhUstgah(item._id)">Устгах</el-button>
         </el-row>
       </div>
     </div>
@@ -37,6 +38,7 @@ export default {
   components: {},
   data() {
     return {
+      baseUrl: 'https://bpa.gov.mn/app/',
       text1: null,
       text2: null,
       myArray: [],

@@ -59,6 +59,11 @@ export default [
     name: 'baiguullagiinTaniltsuulga',
     component: () => import('@/views/homePages/BaiguullagiinTaniltsuulga.vue'),
   },
+  {
+    path: '/shilendans',
+    name: 'shilendans',
+    component: () => import('https://shilendans.gov.mn/organization/24868?ry=2024'),
+  },
   // {
   //   path: '/createUser',
   //   name: 'createUser',

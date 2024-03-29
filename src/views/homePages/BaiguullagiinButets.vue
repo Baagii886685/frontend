@@ -15,7 +15,7 @@
             <el-image
             class="info-image"
             style="width: 55%;"
-            :src="`http://localhost:8000/${item.photoOne}`"
+            :src="baseUrl + item.photoOne"
             :fit="fit"></el-image>
           </div>
 
@@ -37,6 +37,7 @@ export default{
   },
   data() {
     return {
+      baseUrl: 'https://bpa.gov.mn/app/',
       myArray: [],
     };
   },

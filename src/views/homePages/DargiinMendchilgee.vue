@@ -10,7 +10,7 @@
             <el-image
             class="info-image"
             style="width: 550px; height: 370px"
-            :src="`http://localhost:8000/${value.photo}`"
+            :src="baseUrl + value.photo"
             :fit="fit"></el-image>
           </div>
           <div class="mendchilgee-text">
@@ -45,8 +45,8 @@ export default{
   data(){
     return{
       myArray: [],
-      tabPosition: 'left'
-
+      tabPosition: 'left',
+      baseUrl: 'https://bpa.gov.mn/app/'
     }
   },
   async mounted() {

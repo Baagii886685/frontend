@@ -15,7 +15,7 @@
                 <el-image
                   class="info-image"
                   style="width: 150px; height: 170px"
-                  :src="`http://localhost:8000/${value.photoOne}`"
+                  :src="baseUrl + value.photoOne"
                   :fit="fit"
                 ></el-image>
               </div>
@@ -40,14 +40,14 @@
             <el-image
               class="info-image"
               style="width: 100%"
-              :src="`http://localhost:8000/${newsInfo.photoOne}`"
+              :src="baseUrl + newsInfo.photoOne"
               :fit="fit"
             ></el-image>
             <p class="is-size-5">{{ newsInfo.textTwo }}</p>
             <el-image
               class="info-image"
               style="width: 100%"
-              :src="`http://localhost:8000/${newsInfo.photoTwo}`"
+              :src="baseUrl + newsInfo.photoTwo"
               :fit="fit"
             ></el-image>
             <p class="is-size-5">{{ newsInfo.textThree }}</p>
@@ -68,6 +68,7 @@ import { post } from '@/utils/request';
 export default {
   data() {
     return {
+      baseUrl: 'https://bpa.gov.mn/app/',
       message: 'Hello, Vue!',
       dialogTitle: null,
       news: [],
@@ -79,7 +80,7 @@ export default {
   async mounted() {
     const res = await post('/infoNews');
     this.news = res.data.data;
-    console.log('res.data.data =>', res.data.data);
+    // console.log('res.data.data =>', res.data.data);
   },
   // eslint-disable-next-line vue/order-in-components
   computed: {

@@ -5,8 +5,9 @@
         <p class="my-title-fond">Монгол улсын хилийн боомтуудын байршил</p>
       </div>
       <div class="MeMaps" style="height: 500px" :zoom="zoom" :center="center">
-        <l-map style="height: 498px" :zoom="zoom" :center="center" @click="testing"
-          :options="{ attributionControl: false, minZoom: yourMinZoom, maxZoom: yourMaxZoom, }">
+        <l-map
+style="height: 498px" :zoom="zoom" :center="center" :options="{ attributionControl: false, minZoom: yourMinZoom, maxZoom: yourMaxZoom, }"
+          @click="testing">
           <l-tile-layer class="test" :url="url" :attribution="attribution"></l-tile-layer>
           <l-marker :lat-lng="markerLatLng" :icon="pointIcon">
             <l-popup :lat-lng="markerLatLng">
@@ -255,7 +256,7 @@
                   </div>
                   <div v-if="value.date">
                     <el-row>
-                      <el-button @click="decsView" type="success" plain>{{ btnDescription }}</el-button>
+                      <el-button type="success" plain @click="decsView">{{ btnDescription }}</el-button>
                     </el-row>
                   </div>
 
@@ -280,6 +281,10 @@
 import L from 'leaflet';
 import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet';
 import { post } from '@/utils/request';
+
+
+
+
 
 export default {
   components: {
@@ -311,7 +316,14 @@ export default {
       urdTseg: [41.58183324406557, 105.00669463137],
       zuunTseg: [46.721722315578, 119.92987111842687],
       baruunTseg: [48.881315464679595, 87.7344797104239],
-      customIcon: null,
+      customIcon: L.icon({
+        iconSize: [25, 41],
+        iconAnchor: [10, 41],
+        popupAnchor: [2, -40],
+        iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+        iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+      }),
       pointIcon: L.icon({
         iconUrl: './Logo.png',
         iconSize: [32, 32],
@@ -439,15 +451,15 @@ export default {
     //   this.isMarkerHovered = isHovered;
     // },
 
-    createCustomIcon() {
-      this.customIcon = new L.Icon({
-        iconUrl: './Logo.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16],
-      });
-
-      // L.Marker.prototype.options.icon = this.customIcon;
-    },
+    //     createCustomIcon() {
+    //       this.customIcon = new L.Icon({
+    //         iconUrl:   './Logo.png',
+    //         iconSize: [32, 32],
+    //         iconAnchor: [16, 16],
+    //       });
+    //
+    //       L.Marker.prototype.options.icon = this.customIcon;
+    //     },
 
   },
 };

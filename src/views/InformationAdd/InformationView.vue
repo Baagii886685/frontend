@@ -26,7 +26,7 @@
           <el-image
           class="info-image"
           style="width: 150px; height: 170px"
-          :src="`http://localhost:8000/${value.photoOne}`"
+          :src="baseUrl + value.photoOne"
           :fit="fit"></el-image>
         </div>
         <div class="title-date">
@@ -50,6 +50,7 @@ import { post } from '@/utils/request';
 export default{
   data() {
     return {
+      baseUrl: 'https://bpa.gov.mn/app/',
       message: 'Hello, Vue!',
       dialogTitle: null,
       news: [],

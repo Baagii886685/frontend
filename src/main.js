@@ -1,5 +1,6 @@
+/* eslint-disable global-require */
 import Vue from 'vue';
-
+// import L from 'leaflet';
 
 
 // import * as VueGoogleMaps from 'vue2-google-maps';
@@ -27,11 +28,12 @@ import DateFormattingPlugin from './dateFormatting';
 // import 'https://fonts.googleapis.com/css?family=Lato:100&display=swap';
 
 
-// Vue.use(VueGoogleMaps, {
-//   load: {
-//     key: 'AIzaSyAii0BtC5ZauNuUp3vhEqrVnjl3TsRkS2E',
-//     // libraries: 'places',
-//   },
+// delete L.Icon.Default.prototype._getIconUrl;
+//
+// L.Icon.Default.mergeOptions({
+//   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+//   iconUrl: require('leaflet/dist/images/marker-icon.png'),
+//   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 // });
 
 

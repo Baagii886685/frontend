@@ -19,12 +19,15 @@
             <router-link to="/baiguullagiinTaniltsuulga"><el-menu-item index="2-2">Байгууллагын танилцуулга</el-menu-item></router-link>
             <router-link to="/baiguullagiinButets"><el-menu-item index="2-3">Байгууллагын бүтэц</el-menu-item></router-link>
             <router-link to="/baiguullagiinTuuh"><el-menu-item index="2-4">Байгууллагын түүх</el-menu-item></router-link>
-
           </el-submenu>
           <router-link to="/portabout"><el-menu-item index="3">Боомтын тухай</el-menu-item></router-link>
-          <!-- <router-link to="/"><el-menu-item index="4">Хууль тогтоомж</el-menu-item></router-link> -->
-            <!-- <router-link to="/"><el-menu-item index="5">Ил тод байдал</el-menu-item></router-link> -->
-            <!-- <router-link to="/"><el-menu-item index="6">Холбоо барих</el-menu-item></router-link> -->
+
+
+          <el-menu-item index="4">
+               <a href="https://shilendans.gov.mn/organization/24868?ry=2024">Шилэн данс</a>
+          </el-menu-item>
+
+          <!-- Example of using router-link within a menu item -->
         </el-menu>
       </div>
     </div>
@@ -32,6 +35,8 @@
 </template>
 
 <script>
+// import router from '@/router';
+
 export default {
   data() {
     return {
@@ -47,6 +52,11 @@ export default {
 </script>
 
 <style scoped>
+
+.el-menu-item{
+  color: red;
+}
+
 .el-menu .active-menu-item:hover {
   background-color: #7eb6ff;
   border-bottom: 2px solid green;
